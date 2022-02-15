@@ -6,8 +6,10 @@ from main.file_handling import FileHandling
 
 class FileHandlingTestCase(unittest.TestCase):
     def setUp(self) -> None:
-        self._file_name = Path("test_file/grammar_shutterstock.py")
-        self._backup_file_name = Path("test_file/grammar_shutterstock_backup.py")
+        path = 'test_file/grammar_shutterstock.py'
+        back_path = path.replace('.py', '_backup.py')
+        self._file_name = Path(path)
+        self._backup_file_name = Path(back_path)
 
     def test_read(self):
         lines = FileHandling().read(self._file_name)
