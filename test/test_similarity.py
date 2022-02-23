@@ -5,20 +5,19 @@ from main.similarity import Similarity
 class SimilarityTestCase(unittest.TestCase):
     def setUp(self) -> None:
         self._categories = [
+            'id',
+            'name',
             'description',
-            'datetime',
-            'time zone',
-            'date',
+            'time_zone',
             'url',
-            'username',
             'language',
             'location',
-            'media type',
+            'media_type',
             'color',
             'email',
             'query',
-            'file path',
-            'domain name'
+            'path',
+            'domain'
         ]
 
     def test_normal_type(self):

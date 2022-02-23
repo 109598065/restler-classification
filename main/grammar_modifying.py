@@ -10,18 +10,19 @@ class GrammarModifying:
         self._file_name = file_name
         self._backup_file_name = backup_file_name
         self._categories = [
+            'id',
+            'name',
             'description',
             'time_zone',
             'url',
-            'username',
             'language',
             'location',
             'media_type',
             'color',
             'email',
             'query',
-            'file_path',
-            'domain_name'
+            'path',
+            'domain'
         ]
         self._threshold = 0.5
 
