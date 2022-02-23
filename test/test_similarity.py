@@ -20,13 +20,23 @@ class SimilarityTestCase(unittest.TestCase):
             'domain'
         ]
 
-    def test_normal_type(self):
+    def test_belong_the_category(self):
         similarity = Similarity(self._categories, 0.5)
         self.assertEqual('description', similarity.classify('desc'))
 
-    def test_non_type(self):
+    def test_not_belong_any_category(self):
         similarity = Similarity(self._categories, 0.5)
         self.assertEqual('string', similarity.classify('contribute'))
+
+    def test_snake_case_word(self):
+        word = 'subscription_id'
+        similarity = Similarity(self._categories, 0.5)
+        self.assertEqual('id', similarity.classify(word))
+
+    def test_camel_case_word(self):
+        word = 'subscriptionId'
+        similarity = Similarity(self._categories, 0.5)
+        self.assertEqual('id', similarity.classify(word))
 
 
 if __name__ == '__main__':
