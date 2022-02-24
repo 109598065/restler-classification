@@ -82,6 +82,21 @@ class StringModifyingTestCase(unittest.TestCase):
         self.assertEqual('        "apple":"""),', lines[4])
         self.assertEqual('primitives.restler_fuzzable_string("fuzzstring", quoted=True),', lines[5])
 
+    def test_modify_all_path_parameter_to_id_category(self):
+        line1 = 'primitives.restler_static_string("contributors"),'
+        line2 = 'primitives.restler_static_string("/"),'
+        line3 = 'primitives.restler_fuzzable_string("fuzzstring", quoted=False),'
+        line4 = 'primitives.restler_static_string("/"),'
+        lines = [line1, line2, line3, line4]
+
+        string_modifying = StringModifying(Similarity(self._categories, 0.5))
+        lines = string_modifying.modify_all_path_parameter_to_id_category(lines)
+        self.assertTrue(lines)
+        self.assertEqual('primitives.restler_static_string("contributors"),', lines[0])
+        self.assertEqual('primitives.restler_static_string("/"),', lines[1])
+        self.assertEqual('primitives.restler_fuzzable_id("fuzzstring", quoted=False),', lines[2])
+        self.assertEqual('primitives.restler_static_string("/"),', lines[3])
+
 
 if __name__ == '__main__':
     unittest.main()

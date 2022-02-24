@@ -45,3 +45,21 @@ class StringModifying:
                     lines[index] = line
 
         return lines
+
+    @staticmethod
+    def modify_all_path_parameter_to_id_category(lines):
+        state = 0
+
+        for index, line in enumerate(lines):
+            if state == 0:
+                match_obj_for_search = re.search(r'primitives.restler_static_string\("/"\),', line)
+                if match_obj_for_search:
+                    state = 1
+            elif state == 1:
+                state = 0
+                match_obj_for_change = re.search(r'restler_fuzzable_string', line)
+                if match_obj_for_change:
+                    line = line.replace('restler_fuzzable_string', 'restler_fuzzable_id')
+                    lines[index] = line
+
+        return lines
