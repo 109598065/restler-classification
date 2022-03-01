@@ -1,5 +1,4 @@
 import os
-
 from main.file_handling import FileHandling
 from main.similarity import Similarity
 from main.string_modifying import StringModifying
@@ -34,4 +33,5 @@ class GrammarModifying:
         string_modifying = StringModifying(Similarity(self._categories, self._threshold))
         lines = string_modifying.modify_http_get(lines)
         lines = string_modifying.modify_http_post(lines)
+        lines = string_modifying.modify_all_path_parameter_to_id_category(lines)
         FileHandling.write(self._file_name, lines)
