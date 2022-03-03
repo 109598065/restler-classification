@@ -46,8 +46,7 @@ class StringModifying:
 
         return lines
 
-    @staticmethod
-    def modify_all_path_parameter_to_id_category(lines):
+    def modify_all_path_parameter_to_id_category(self, lines):
         state = 0
 
         for index, line in enumerate(lines):
