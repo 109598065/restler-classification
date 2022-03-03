@@ -4,21 +4,21 @@ from main.similarity import Similarity
 
 class SimilarityTestCase(unittest.TestCase):
     def setUp(self) -> None:
-        self._categories = [
-            'id',
-            'name',
-            'description',
-            'time_zone',
-            'url',
-            'language',
-            'location',
-            'media_type',
-            'color',
-            'email',
-            'query',
-            'path',
-            'domain'
-        ]
+        self._categories = {
+            'id': ['id'],
+            'name': ['name', 'username'],
+            'description': ['description'],
+            'time_zone': ['time_zone'],
+            'url': ['url'],
+            'language': ['language'],
+            'location': ['location'],
+            'media_type': ['media_type'],
+            'color': ['color'],
+            'email': ['email'],
+            'query': ['query'],
+            'path': ['path'],
+            'domain': ['domain']
+        }
 
     def test_belong_the_category(self):
         similarity = Similarity(self._categories, 0.5)
@@ -37,15 +37,20 @@ class SimilarityTestCase(unittest.TestCase):
         similarity = Similarity(self._categories, 0.9)
         self.assertEqual('media_type', similarity.classify(word))
 
-    def test_snake_case_word(self):
+    def test_snake_case_word_classify(self):
         word = 'subscription_id'
         similarity = Similarity(self._categories, 0.5)
         self.assertEqual('id', similarity.classify(word))
 
-    def test_camel_case_word(self):
+    def test_camel_case_word_classify(self):
         word = 'subscriptionId'
         similarity = Similarity(self._categories, 0.5)
         self.assertEqual('id', similarity.classify(word))
+
+    def test_multiple_keywords_mapping_to_category(self):
+        word = 'username'
+        similarity = Similarity(self._categories, 0.9)
+        self.assertEqual('name', similarity.classify(word))
 
 
 if __name__ == '__main__':

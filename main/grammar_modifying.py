@@ -8,22 +8,22 @@ class GrammarModifying:
     def __init__(self, file_name, backup_file_name):
         self._file_name = file_name
         self._backup_file_name = backup_file_name
-        self._categories = [
-            'id',
-            'name',
-            'description',
-            'time_zone',
-            'url',
-            'language',
-            'location',
-            'media_type',
-            'color',
-            'email',
-            'query',
-            'path',
-            'domain'
-        ]
-        self._threshold = 0.5
+        self._categories = {
+            'id': ['id'],
+            'name': ['name', 'username'],
+            'description': ['description'],
+            'time_zone': ['time_zone'],
+            'url': ['url'],
+            'language': ['language'],
+            'location': ['location'],
+            'media_type': ['media_type'],
+            'color': ['color'],
+            'email': ['email'],
+            'query': ['query'],
+            'path': ['path'],
+            'domain': ['domain']
+        }
+        self._threshold = 0.70
 
     def execute(self):
         lines = FileHandling().read(self._file_name)
@@ -35,3 +35,4 @@ class GrammarModifying:
         lines = string_modifying.modify_http_post(lines)
         lines = string_modifying.modify_all_path_parameter_to_id_category(lines)
         FileHandling.write(self._file_name, lines)
+    

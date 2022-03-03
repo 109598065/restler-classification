@@ -5,22 +5,21 @@ from main.string_modifying import StringModifying
 
 class StringModifyingTestCase(unittest.TestCase):
     def setUp(self) -> None:
-        self._categories = [
-            'description',
-            'datetime',
-            'time zone',
-            'date',
-            'url',
-            'username',
-            'language',
-            'location',
-            'media type',
-            'color',
-            'email',
-            'query',
-            'file path',
-            'domain name'
-        ]
+        self._categories = {
+            'id': ['id'],
+            'name': ['name', 'username'],
+            'description': ['description'],
+            'time_zone': ['time_zone'],
+            'url': ['url'],
+            'language': ['language'],
+            'location': ['location'],
+            'media_type': ['media_type'],
+            'color': ['color'],
+            'email': ['email'],
+            'query': ['query'],
+            'path': ['path'],
+            'domain': ['domain']
+        }
 
     def test_http_get_modify_customize_string_with_similarity(self):
         line1 = '     primitives.restler_static_string("desc="),'
