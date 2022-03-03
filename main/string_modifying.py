@@ -18,8 +18,8 @@ class StringModifying:
                 state = 0
                 match_obj_for_change = re.search(r'restler_fuzzable_string', line)
                 if match_obj_for_change:
-                    category = self._classification.classify(attribute)
-                    line = line.replace('restler_fuzzable_string', 'restler_fuzzable_' + category)
+                    classification = self._classification.classify(attribute)
+                    line = line.replace('restler_fuzzable_string', 'restler_fuzzable_' + classification)
                     lines[index] = line
         return lines
 
@@ -40,13 +40,13 @@ class StringModifying:
                 state = 0
                 match_obj_for_change = re.search(r'restler_fuzzable_string', line)
                 if match_obj_for_change:
-                    category = self._classification.classify(attribute)
-                    line = line.replace('restler_fuzzable_string', 'restler_fuzzable_' + category)
+                    classification = self._classification.classify(attribute)
+                    line = line.replace('restler_fuzzable_string', 'restler_fuzzable_' + classification)
                     lines[index] = line
 
         return lines
 
-    def modify_all_path_parameter_to_id_category(self, lines):
+    def modify_all_path_parameter_to_id_classification(self, lines):
         state = 0
 
         for index, line in enumerate(lines):

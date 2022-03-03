@@ -3,8 +3,8 @@ from difflib import SequenceMatcher
 
 
 class Similarity:
-    def __init__(self, categories, threshold):
-        self._categories = categories
+    def __init__(self, classification_table, threshold):
+        self._classification_table = classification_table
         self._threshold = threshold
 
     def classify(self, word):
@@ -13,7 +13,7 @@ class Similarity:
         classification = ''
 
         for split_word in split_words:
-            for key, values in self._categories.items():
+            for key, values in self._classification_table.items():
                 for value in values:
                     similar = SequenceMatcher(None, value, split_word).ratio()
                     if similar >= max_similar:
