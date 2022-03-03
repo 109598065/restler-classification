@@ -28,6 +28,15 @@ class SimilarityTestCase(unittest.TestCase):
         similarity = Similarity(self._categories, 0.5)
         self.assertEqual('string', similarity.classify('contribute'))
 
+    def test_compound_word_processing(self):
+        similarity = Similarity(self._categories, 0.5)
+        self.assertEqual(['media', 'type', 'media_type'], similarity._compound_word_processing('media_type'))
+
+    def test_compound_word_direct_classify(self):
+        word = 'media_type'
+        similarity = Similarity(self._categories, 0.9)
+        self.assertEqual('media_type', similarity.classify(word))
+
     def test_snake_case_word(self):
         word = 'subscription_id'
         similarity = Similarity(self._categories, 0.5)
