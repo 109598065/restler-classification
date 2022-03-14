@@ -15,7 +15,7 @@ class GrammarModifyingTestCase(unittest.TestCase):
 
     def test_modify(self):
         grammar_modifying = GrammarModifying(self._file_name, self._backup_file_name)
-        grammar_modifying.execute()
+        grammar_modifying.execute_similarity(0.8)
         self.assertTrue(os.path.exists(self._file_name))
         self.assertTrue(os.path.exists(self._backup_file_name))
         lines = FileHandling().read(self._file_name)
