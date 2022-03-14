@@ -1,15 +1,20 @@
 classification_table = {
     'id': ['id'],
-    'name': ['name', 'username'],
-    'description': ['description'],
+    'name': ['name', 'user', 'username', 'contributor', 'artists'],
+    'description': ['description', 'summary', 'text', 'title', 'comment', 'value', 'content', 'message'],
     'time_zone': ['time_zone'],
-    'url': ['url'],
+    'url': ['url', 'uri', 'link'],
     'language': ['language'],
-    'location': ['location'],
-    'media_type': ['media_type'],
+    'location': ['location', 'country', 'address'],
+    'media_type': ['media_type', 'mime_type'],
     'color': ['color'],
     'email': ['email'],
-    'query': ['query'],
+    'query': ['query', 'q', 'search'],
     'path': ['path'],
-    'domain': ['domain']
+    'domain': ['domain'],
+    'token': ['token', 'code', 'key'],
+    'category': ['category', 'type', 'genre', 'kind', 'tag'],
+    'ip': ['ip', 'host'],
+    'datetime': ['datetime', 'since', 'until', 'after', 'before', 'time', 'before', 'after', 'min'],
+    'date': ['date', 'due']
 }

@@ -8,15 +8,15 @@ class SimilarityTestCase(unittest.TestCase):
         self._classification_table = configuration.classification_table
 
     def test_belong_the_classification(self):
-        similarity = Similarity(self._classification_table, 0.5)
-        self.assertEqual('description', similarity.classify('desc'))
+        similarity = Similarity(self._classification_table, 0.8)
+        self.assertEqual('id', similarity.classify('id'))
 
     def test_not_belong_any_classification(self):
-        similarity = Similarity(self._classification_table, 0.5)
-        self.assertEqual('string', similarity.classify('contribute'))
+        similarity = Similarity(self._classification_table, 0.8)
+        self.assertEqual('string', similarity.classify('apple'))
 
     def test_compound_word_processing(self):
-        similarity = Similarity(self._classification_table, 0.5)
+        similarity = Similarity(self._classification_table, 0.8)
         self.assertEqual(['media', 'type', 'media_type'], similarity._compound_word_processing('media_type'))
 
     def test_compound_word_direct_classify(self):
@@ -26,12 +26,12 @@ class SimilarityTestCase(unittest.TestCase):
 
     def test_snake_case_word_classify(self):
         word = 'subscription_id'
-        similarity = Similarity(self._classification_table, 0.5)
+        similarity = Similarity(self._classification_table, 0.8)
         self.assertEqual('id', similarity.classify(word))
 
     def test_camel_case_word_classify(self):
         word = 'subscriptionId'
-        similarity = Similarity(self._classification_table, 0.5)
+        similarity = Similarity(self._classification_table, 0.8)
         self.assertEqual('id', similarity.classify(word))
 
     def test_multiple_keywords_mapping_to_classification(self):
