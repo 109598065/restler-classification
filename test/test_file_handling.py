@@ -1,5 +1,6 @@
 import unittest
 import os
+import uuid
 from pathlib import Path
 from main.file_handling import FileHandling
 
@@ -7,9 +8,9 @@ from main.file_handling import FileHandling
 class FileHandlingTestCase(unittest.TestCase):
     def setUp(self) -> None:
         path = 'test_file/grammar_shutterstock.py'
-        back_path = path.replace('.py', '_backup.py')
+        backup_path = path.replace('.py', '_backup_' + str(uuid.uuid1()) + '.py')
         self._file_name = Path(path)
-        self._backup_file_name = Path(back_path)
+        self._backup_file_name = Path(backup_path)
 
     def test_read(self):
         lines = FileHandling().read(self._file_name)

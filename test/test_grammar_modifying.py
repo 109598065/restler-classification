@@ -1,5 +1,6 @@
 import os
 import unittest
+import uuid
 from pathlib import Path
 from main.file_handling import FileHandling
 from main.grammar_modifying import GrammarModifying
@@ -8,9 +9,9 @@ from main.grammar_modifying import GrammarModifying
 class GrammarModifyingTestCase(unittest.TestCase):
     def setUp(self) -> None:
         path = 'test_file/grammar_shutterstock.py'
-        back_path = path.replace('.py', '_backup.py')
+        backup_path = path.replace('.py', '_backup_' + str(uuid.uuid1()) + '.py')
         self._file_name = Path(path)
-        self._backup_file_name = Path(back_path)
+        self._backup_file_name = Path(backup_path)
 
     def test_modify(self):
         grammar_modifying = GrammarModifying(self._file_name, self._backup_file_name)
