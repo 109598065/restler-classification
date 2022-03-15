@@ -22,7 +22,7 @@ class Similarity:
 
         if max_similar > self._threshold:
             return classification
-        return 'string'
+        return None
 
     def _compound_word_processing(self, word):
         snake_case_words = re.sub(r'(?<!^)(?=[A-Z])', '_', word).lower()

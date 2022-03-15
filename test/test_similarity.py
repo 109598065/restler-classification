@@ -13,7 +13,7 @@ class SimilarityTestCase(unittest.TestCase):
 
     def test_not_belong_any_classification(self):
         similarity = Similarity(self._classification_table, 0.8)
-        self.assertEqual('string', similarity.classify('apple'))
+        self.assertEqual(None, similarity.classify('apple'))
 
     def test_compound_word_processing(self):
         similarity = Similarity(self._classification_table, 0.8)

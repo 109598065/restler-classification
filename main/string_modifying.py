@@ -18,7 +18,8 @@ class StringModifying:
                 state = 0
                 match_obj_for_change = re.search(r'restler_fuzzable_string', line)
                 if match_obj_for_change:
-                    classification = self._classification.classify(attribute)
+                    classify = self._classification.classify(attribute)
+                    classification = classify if classify else 'string'
                     line = line.replace('restler_fuzzable_string', 'restler_fuzzable_' + classification)
                     lines[index] = line
         return lines
@@ -40,7 +41,8 @@ class StringModifying:
                 state = 0
                 match_obj_for_change = re.search(r'restler_fuzzable_string', line)
                 if match_obj_for_change:
-                    classification = self._classification.classify(attribute)
+                    classify = self._classification.classify(attribute)
+                    classification = classify if classify else 'string'
                     line = line.replace('restler_fuzzable_string', 'restler_fuzzable_' + classification)
                     lines[index] = line
 
