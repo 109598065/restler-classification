@@ -6,6 +6,7 @@ from main.string_modifier import StringModifier
 
 class StringModifierTestCase(unittest.TestCase):
     def setUp(self) -> None:
+        self._classification_table = configuration.string_classification_table
 
     def test_http_get_modify_customize_string_with_similarity(self):
         line1 = '     primitives.restler_static_string("id="),'

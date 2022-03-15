@@ -5,7 +5,7 @@ from main.similarity import Similarity
 
 class SimilarityTestCase(unittest.TestCase):
     def setUp(self) -> None:
-        self._classification_table = configuration.classification_table
+        self._classification_table = configuration.string_classification_table
 
     def test_belong_the_classification(self):
         similarity = Similarity(self._classification_table, 0.8)

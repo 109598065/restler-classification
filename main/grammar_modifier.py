@@ -11,6 +11,7 @@ class GrammarModifier:
         self._backup_file_name = backup_file_name
 
     def execute_similarity(self, threshold):
+        classification_table = configuration.string_classification_table
         lines = FileHandling().read(self._file_name)
         if not os.path.exists(self._backup_file_name):
             os.rename(self._file_name, self._backup_file_name)
