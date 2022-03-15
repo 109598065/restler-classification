@@ -3,10 +3,10 @@ import unittest
 import uuid
 from pathlib import Path
 from main.file_handling import FileHandling
-from main.grammar_modifying import GrammarModifying
+from main.grammar_modifier import GrammarModifier
 
 
-class GrammarModifyingTestCase(unittest.TestCase):
+class GrammarModifierTestCase(unittest.TestCase):
     def setUp(self) -> None:
         path = 'test_file/grammar_shutterstock.py'
         backup_path = path.replace('.py', '_backup_' + str(uuid.uuid1()) + '.py')
@@ -14,8 +14,8 @@ class GrammarModifyingTestCase(unittest.TestCase):
         self._backup_file_name = Path(backup_path)
 
     def test_modify(self):
-        grammar_modifying = GrammarModifying(self._file_name, self._backup_file_name)
-        grammar_modifying.execute_similarity(0.8)
+        grammar_modifier = GrammarModifier(self._file_name, self._backup_file_name)
+        grammar_modifier.execute_similarity(0.8)
         self.assertTrue(os.path.exists(self._file_name))
         self.assertTrue(os.path.exists(self._backup_file_name))
         lines = FileHandling().read(self._file_name)

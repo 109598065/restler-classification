@@ -1,20 +1,19 @@
 import unittest
 import configuration
 from main.similarity import Similarity
-from main.string_modifying import StringModifying
+from main.string_modifier import StringModifier
 
 
-class StringModifyingTestCase(unittest.TestCase):
+class StringModifierTestCase(unittest.TestCase):
     def setUp(self) -> None:
-        self._classification_table = configuration.classification_table
 
     def test_http_get_modify_customize_string_with_similarity(self):
         line1 = '     primitives.restler_static_string("id="),'
         line2 = '     primitives.restler_fuzzable_string("fuzzstring", quoted=False),'
         lines = [line1, line2]
 
-        string_modifying = StringModifying(Similarity(self._classification_table, 0.8))
-        lines = string_modifying.modify_http_get(lines)
+        string_modifier = StringModifier(Similarity(self._classification_table, 0.8))
+        lines = string_modifier.modify_http_get(lines)
         self.assertTrue(lines)
         self.assertEqual('     primitives.restler_static_string("id="),', lines[0])
         self.assertEqual('     primitives.restler_fuzzable_id("fuzzstring", quoted=False),', lines[1])
@@ -28,8 +27,8 @@ class StringModifyingTestCase(unittest.TestCase):
         line6 = 'primitives.restler_fuzzable_string("fuzzstring", quoted=True),'
         lines = [line1, line2, line3, line4, line5, line6]
 
-        string_modifying = StringModifying(Similarity(self._classification_table, 0.8))
-        lines = string_modifying.modify_http_post(lines)
+        string_modifier = StringModifier(Similarity(self._classification_table, 0.8))
+        lines = string_modifier.modify_http_post(lines)
         self.assertTrue(lines)
         self.assertEqual('primitives.restler_static_string("""', lines[0])
         self.assertEqual('"items":', lines[1])
@@ -43,8 +42,8 @@ class StringModifyingTestCase(unittest.TestCase):
         line2 = '     primitives.restler_fuzzable_string("fuzzstring", quoted=False),'
         lines = [line1, line2]
 
-        string_modifying = StringModifying(Similarity(self._classification_table, 0.8))
-        lines = string_modifying.modify_http_get(lines)
+        string_modifier = StringModifier(Similarity(self._classification_table, 0.8))
+        lines = string_modifier.modify_http_get(lines)
         self.assertTrue(lines)
         self.assertEqual('     primitives.restler_static_string("apple="),', lines[0])
         self.assertEqual('     primitives.restler_fuzzable_string("fuzzstring", quoted=False),', lines[1])
@@ -58,8 +57,8 @@ class StringModifyingTestCase(unittest.TestCase):
         line6 = 'primitives.restler_fuzzable_string("fuzzstring", quoted=True),'
         lines = [line1, line2, line3, line4, line5, line6]
 
-        string_modifying = StringModifying(Similarity(self._classification_table, 0.8))
-        lines = string_modifying.modify_http_post(lines)
+        string_modifier = StringModifier(Similarity(self._classification_table, 0.8))
+        lines = string_modifier.modify_http_post(lines)
         self.assertTrue(lines)
         self.assertEqual('primitives.restler_static_string("""', lines[0])
         self.assertEqual('"items":', lines[1])
@@ -75,8 +74,8 @@ class StringModifyingTestCase(unittest.TestCase):
         line4 = 'primitives.restler_static_string("/"),'
         lines = [line1, line2, line3, line4]
 
-        string_modifying = StringModifying(Similarity(self._classification_table, 0.8))
-        lines = string_modifying.modify_all_path_parameter_to_id_classification(lines)
+        string_modifier = StringModifier(Similarity(self._classification_table, 0.8))
+        lines = string_modifier.modify_all_path_parameter_to_id_classification(lines)
         self.assertTrue(lines)
         self.assertEqual('primitives.restler_static_string("contributors"),', lines[0])
         self.assertEqual('primitives.restler_static_string("/"),', lines[1])

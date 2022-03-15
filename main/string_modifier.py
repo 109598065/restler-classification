@@ -1,7 +1,7 @@
 import re
 
 
-class StringModifying:
+class StringModifier:
     def __init__(self, classification):
         self._classification = classification
 
