@@ -29,5 +29,3 @@ class Similarity:
         split_words = snake_case_words.split('_')
         split_words.append(snake_case_words)
         return split_words
-
-

@@ -1,9 +1,9 @@
-classification_table = {
-    'id': ['id'],
+string_classification_table = {
+    'id': ['id', 'uuid'],
     'name': ['name', 'user', 'username', 'contributor', 'artists'],
     'description': ['description', 'summary', 'text', 'title', 'comment', 'value', 'content', 'message'],
     'time_zone': ['time_zone'],
-    'url': ['url', 'uri', 'link'],
+    'url': ['url', 'uri', 'link', 'href', 'website'],
     'language': ['language'],
     'location': ['location', 'country', 'address'],
     'media_type': ['media_type', 'mime_type'],

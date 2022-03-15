@@ -22,6 +22,7 @@ class StringModifier:
                     classification = classify if classify else 'string'
                     line = line.replace('restler_fuzzable_string', 'restler_fuzzable_' + classification)
                     lines[index] = line
+
         return lines
 
     def modify_http_post(self, lines):
