@@ -1,6 +1,6 @@
 import unittest
 import configuration
-from main.similarity import Similarity
+from main.grammar.similarity import Similarity
 
 
 class SimilarityTestCase(unittest.TestCase):

@@ -1,5 +1,5 @@
 from pathlib import Path
-from main.grammar_modifier import GrammarModifier
+from main.grammar.grammar_modifier import GrammarModifier
 
 path = 'grammar.py'
 backup_path = path.replace('.py', '_backup.py')

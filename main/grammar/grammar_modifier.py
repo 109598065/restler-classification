@@ -1,8 +1,8 @@
 import os
 import configuration
-from main.file_handling import FileHandling
-from main.similarity import Similarity
-from main.string_modifier import StringModifier
+from main.grammar.file_handling import FileHandling
+from main.grammar.similarity import Similarity
+from main.grammar.string_modifier import StringModifier
 
 
 class GrammarModifier:
