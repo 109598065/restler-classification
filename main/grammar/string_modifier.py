@@ -5,7 +5,7 @@ class StringModifier:
     def __init__(self, classification):
         self._classification = classification
 
-    def modify_http_get(self, lines):
+    def modify_query_parameter(self, lines):
         state = 0
 
         for index, line in enumerate(lines):
@@ -25,7 +25,7 @@ class StringModifier:
 
         return lines
 
-    def modify_http_post(self, lines):
+    def modify_body_parameter(self, lines):
         state = 0
 
         for index, line in enumerate(lines):
@@ -49,7 +49,7 @@ class StringModifier:
 
         return lines
 
-    def modify_all_path_parameter_to_id_classification(self, lines):
+    def modify_path_parameter(self, lines):
         state = 0
 
         for index, line in enumerate(lines):

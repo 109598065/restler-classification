@@ -14,7 +14,7 @@ class StringModifierTestCase(unittest.TestCase):
         lines = [line1, line2]
 
         string_modifier = StringModifier(Similarity(self._classification_table, 0.8))
-        lines = string_modifier.modify_http_get(lines)
+        lines = string_modifier.modify_query_parameter(lines)
         self.assertTrue(lines)
         self.assertEqual('     primitives.restler_static_string("id="),', lines[0])
         self.assertEqual('     primitives.restler_fuzzable_id("fuzzstring", quoted=False),', lines[1])
@@ -29,7 +29,7 @@ class StringModifierTestCase(unittest.TestCase):
         lines = [line1, line2, line3, line4, line5, line6]
 
         string_modifier = StringModifier(Similarity(self._classification_table, 0.8))
-        lines = string_modifier.modify_http_post(lines)
+        lines = string_modifier.modify_body_parameter(lines)
         self.assertTrue(lines)
         self.assertEqual('primitives.restler_static_string("""', lines[0])
         self.assertEqual('"items":', lines[1])
@@ -44,7 +44,7 @@ class StringModifierTestCase(unittest.TestCase):
         lines = [line1, line2]
 
         string_modifier = StringModifier(Similarity(self._classification_table, 0.8))
-        lines = string_modifier.modify_http_get(lines)
+        lines = string_modifier.modify_query_parameter(lines)
         self.assertTrue(lines)
         self.assertEqual('     primitives.restler_static_string("apple="),', lines[0])
         self.assertEqual('     primitives.restler_fuzzable_string("fuzzstring", quoted=False),', lines[1])
@@ -59,7 +59,7 @@ class StringModifierTestCase(unittest.TestCase):
         lines = [line1, line2, line3, line4, line5, line6]
 
         string_modifier = StringModifier(Similarity(self._classification_table, 0.8))
-        lines = string_modifier.modify_http_post(lines)
+        lines = string_modifier.modify_body_parameter(lines)
         self.assertTrue(lines)
         self.assertEqual('primitives.restler_static_string("""', lines[0])
         self.assertEqual('"items":', lines[1])
@@ -68,15 +68,11 @@ class StringModifierTestCase(unittest.TestCase):
         self.assertEqual('        "apple":"""),', lines[4])
         self.assertEqual('primitives.restler_fuzzable_string("fuzzstring", quoted=True),', lines[5])
 
-    def test_modify_all_path_parameter_to_id_classification(self):
-        line1 = 'primitives.restler_static_string("contributors"),'
-        line2 = 'primitives.restler_static_string("/"),'
-        line3 = 'primitives.restler_fuzzable_string("fuzzstring", quoted=False),'
-        line4 = 'primitives.restler_static_string("/"),'
+    def test_modify_path_parameter(self):
         lines = [line1, line2, line3, line4]
 
         string_modifier = StringModifier(Similarity(self._classification_table, 0.8))
-        lines = string_modifier.modify_all_path_parameter_to_id_classification(lines)
+        lines = string_modifier.modify_path_parameter(lines)
         self.assertTrue(lines)
         self.assertEqual('primitives.restler_static_string("contributors"),', lines[0])
         self.assertEqual('primitives.restler_static_string("/"),', lines[1])

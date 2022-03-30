@@ -17,8 +17,8 @@ class GrammarModifier:
             os.rename(self._file_name, self._backup_file_name)
 
         string_modifier = StringModifier(Similarity(classification_table, threshold))
-        lines = string_modifier.modify_http_get(lines)
-        lines = string_modifier.modify_http_post(lines)
-        lines = string_modifier.modify_all_path_parameter_to_id_classification(lines)
+        lines = string_modifier.modify_query_parameter(lines)
+        lines = string_modifier.modify_body_parameter(lines)
+        lines = string_modifier.modify_path_parameter(lines)
         FileHandling.write(self._file_name, lines)
     
