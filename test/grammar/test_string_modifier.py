@@ -2,6 +2,7 @@ import unittest
 import configuration
 from main.grammar.similarity import Similarity
 from main.grammar.string_modifier import StringModifier
+from main.grammar.word2vec import Word2vec
 
 
 class StringModifierTestCase(unittest.TestCase):
@@ -127,6 +128,17 @@ class StringModifierTestCase(unittest.TestCase):
         lines = string_modifier.modify_path_parameter(lines)
         self.assertTrue(lines)
         self.assertEqual('    primitives.restler_fuzzable_area("fuzzstring", quoted=False),', lines[7])
+
+    def test_http_get_modify_customize_string_with_word2vec_similarity(self):
+        line1 = '     primitives.restler_static_string("id="),'
+        line2 = '     primitives.restler_fuzzable_string("fuzzstring", quoted=False),'
+        lines = [line1, line2]
+
+        string_modifier = StringModifier(Word2vec(self._classification_table))
+        lines = string_modifier.modify_query_parameter(lines)
+        self.assertTrue(lines)
+        self.assertEqual('     primitives.restler_static_string("id="),', lines[0])
+        self.assertEqual('     primitives.restler_fuzzable_id("fuzzstring", quoted=False),', lines[1])
 
 
 if __name__ == '__main__':
