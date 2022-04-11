@@ -69,11 +69,6 @@ class StringModifier:
                 if match_obj_for_search:
                     state = 2
             elif state == 2:
-
-                match_obj_for_search_end = re.search(r'req_collection.add_request\(request\)', line)  # todo
-                if match_obj_for_search_end:
-                    state = 0
-
                 state = 1
                 match_obj_for_change = re.search(r'restler_fuzzable_string', line)
                 if not results:
