@@ -1,6 +1,5 @@
 import unittest
 import os
-import uuid
 from pathlib import Path
 from main.grammar.file_handling import FileHandling
 

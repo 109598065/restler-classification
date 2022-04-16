@@ -1,5 +1,4 @@
 import unittest
-
 import configuration
 from main.grammar.word2vec import Word2vec
 
