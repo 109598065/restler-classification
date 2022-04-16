@@ -127,6 +127,59 @@ req_collection.add_request(request)'''
         self.assertTrue(lines)
         self.assertEqual('    primitives.restler_fuzzable_area("fuzzstring", quoted=False),', lines[7])
 
+    def test_modify_path_parameter_with_multi_paragraph(self):
+        lines = '''# Endpoint: /timezone/{area}/{location}/{region}, method: Get
+        request = requests.Request([
+            primitives.restler_static_string("GET "),
+            primitives.restler_basepath("/api/"),
+            primitives.restler_static_string("/"),
+            primitives.restler_static_string("timezone"),
+            primitives.restler_static_string("/"),
+            primitives.restler_fuzzable_string("fuzzstring", quoted=False),
+            primitives.restler_static_string("/"),
+            primitives.restler_fuzzable_string("fuzzstring", quoted=False),
+            primitives.restler_static_string("/"),
+            primitives.restler_fuzzable_string("fuzzstring", quoted=False),
+            primitives.restler_static_string(" HTTP/1.1\r\n"),
+            primitives.restler_static_string("Accept: application/json\r\n"),
+            primitives.restler_static_string("Host: worldtimeapi.org\r\n"),
+            primitives.restler_refreshable_authentication_token("authentication_token_tag"),
+            primitives.restler_static_string("\r\n"),
+
+        ],
+            requestId="/timezone/{area}/{location}/{region}"
+        )
+        req_collection.add_request(request)
+
+        # Endpoint: /timezone/{area}/{location}/{region}.txt, method: Get
+        request = requests.Request([
+            primitives.restler_static_string("GET "),
+            primitives.restler_basepath("/api/"),
+            primitives.restler_static_string("/"),
+            primitives.restler_static_string("timezone"),
+            primitives.restler_static_string("/"),
+            primitives.restler_fuzzable_string("fuzzstring", quoted=False),
+            primitives.restler_static_string("/"),
+            primitives.restler_fuzzable_string("fuzzstring", quoted=False),
+            primitives.restler_static_string(" HTTP/1.1\r\n"),
+            primitives.restler_static_string("Accept: application/json\r\n"),
+            primitives.restler_static_string("Host: worldtimeapi.org\r\n"),
+            primitives.restler_refreshable_authentication_token("authentication_token_tag"),
+            primitives.restler_static_string("\r\n"),
+
+        ],
+            requestId="/timezone/{area}/{location}/{region}.txt"
+        )
+        req_collection.add_request(request)'''
+        lines = lines.split('\n')
+
+        string_modifier = StringModifier(Similarity(self._classification_table, 0.8))
+        lines = string_modifier.modify_path_parameter(lines)
+        self.assertTrue(lines)
+        self.assertEqual('            primitives.restler_fuzzable_area("fuzzstring", quoted=False),', lines[7])
+        self.assertEqual('            primitives.restler_fuzzable_location("fuzzstring", quoted=False),', lines[9])
+        self.assertEqual('            primitives.restler_fuzzable_region("fuzzstring", quoted=False),', lines[11])
+
     def test_http_get_modify_customize_string_with_word2vec_similarity(self):
         lines = '''     primitives.restler_static_string("id="),
      primitives.restler_fuzzable_string("fuzzstring", quoted=False),'''
