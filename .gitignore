@@ -1,6 +1,9 @@
 grammar*.py
 
-# below for test
+# Test
 experiment/
 main/restler_fuzzer/
 test/restler_fuzzer/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
