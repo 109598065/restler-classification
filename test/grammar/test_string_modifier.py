@@ -15,7 +15,7 @@ class StringModifierTestCase(unittest.TestCase):
         lines = lines.split('\n')
 
         string_modifier = StringModifier(Similarity(self._classification_table, 0.8))
-        lines = string_modifier.modify_query_parameter(lines)
+        lines = string_modifier._modify_query_parameter(lines)
         self.assertTrue(lines)
         self.assertEqual('     primitives.restler_static_string("id="),', lines[0])
         self.assertEqual('     primitives.restler_fuzzable_id("fuzzstring", quoted=False),', lines[1])
@@ -30,7 +30,7 @@ primitives.restler_fuzzable_string("fuzzstring", quoted=True),'''
         lines = lines.split('\n')
 
         string_modifier = StringModifier(Similarity(self._classification_table, 0.8))
-        lines = string_modifier.modify_body_parameter(lines)
+        lines = string_modifier._modify_body_parameter(lines)
         self.assertTrue(lines)
         self.assertEqual('primitives.restler_static_string("""', lines[0])
         self.assertEqual('"items":', lines[1])
@@ -45,7 +45,7 @@ primitives.restler_fuzzable_string("fuzzstring", quoted=True),'''
         lines = lines.split('\n')
 
         string_modifier = StringModifier(Similarity(self._classification_table, 0.8))
-        lines = string_modifier.modify_query_parameter(lines)
+        lines = string_modifier._modify_query_parameter(lines)
         self.assertTrue(lines)
         self.assertEqual('     primitives.restler_static_string("apple="),', lines[0])
         self.assertEqual('     primitives.restler_fuzzable_string("fuzzstring", quoted=False),', lines[1])
@@ -60,7 +60,7 @@ primitives.restler_fuzzable_string("fuzzstring", quoted=True),'''
         lines = lines.split('\n')
 
         string_modifier = StringModifier(Similarity(self._classification_table, 0.8))
-        lines = string_modifier.modify_body_parameter(lines)
+        lines = string_modifier._modify_body_parameter(lines)
         self.assertTrue(lines)
         self.assertEqual('primitives.restler_static_string("""', lines[0])
         self.assertEqual('"items":', lines[1])
@@ -95,7 +95,7 @@ req_collection.add_request(request)'''
         lines = lines.split('\n')
 
         string_modifier = StringModifier(Similarity(self._classification_table, 0.8))
-        lines = string_modifier.modify_path_parameter(lines)
+        lines = string_modifier._modify_path_parameter(lines)
         self.assertTrue(lines)
         self.assertEqual('    primitives.restler_fuzzable_area("fuzzstring", quoted=False),', lines[7])
         self.assertEqual('    primitives.restler_fuzzable_location("fuzzstring", quoted=False),', lines[9])
@@ -123,7 +123,7 @@ req_collection.add_request(request)'''
         lines = lines.split('\n')
 
         string_modifier = StringModifier(Similarity(self._classification_table, 0.8))
-        lines = string_modifier.modify_path_parameter(lines)
+        lines = string_modifier._modify_path_parameter(lines)
         self.assertTrue(lines)
         self.assertEqual('    primitives.restler_fuzzable_area("fuzzstring", quoted=False),', lines[7])
 
@@ -174,7 +174,7 @@ req_collection.add_request(request)'''
         lines = lines.split('\n')
 
         string_modifier = StringModifier(Similarity(self._classification_table, 0.8))
-        lines = string_modifier.modify_path_parameter(lines)
+        lines = string_modifier._modify_path_parameter(lines)
         self.assertTrue(lines)
         self.assertEqual('            primitives.restler_fuzzable_area("fuzzstring", quoted=False),', lines[7])
         self.assertEqual('            primitives.restler_fuzzable_location("fuzzstring", quoted=False),', lines[9])
@@ -186,7 +186,7 @@ req_collection.add_request(request)'''
         lines = lines.split('\n')
 
         string_modifier = StringModifier(Word2vec(self._classification_table, 0.75))
-        lines = string_modifier.modify_query_parameter(lines)
+        lines = string_modifier._modify_query_parameter(lines)
         self.assertTrue(lines)
         self.assertEqual('     primitives.restler_static_string("id="),', lines[0])
         self.assertEqual('     primitives.restler_fuzzable_id("fuzzstring", quoted=False),', lines[1])

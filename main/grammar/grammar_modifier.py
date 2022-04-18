@@ -18,9 +18,7 @@ class GrammarModifier:
             os.rename(self._file_name, self._backup_file_name)
 
         string_modifier = StringModifier(Similarity(classification_table, threshold))
-        lines = string_modifier.modify_query_parameter(lines)
-        lines = string_modifier.modify_body_parameter(lines)
-        lines = string_modifier.modify_path_parameter(lines)
+        lines = string_modifier.execute(lines)
         FileHandling.write(self._file_name, lines)
 
     # todo
@@ -31,9 +29,7 @@ class GrammarModifier:
             os.rename(self._file_name, self._backup_file_name)
 
         string_modifier = StringModifier(Word2vec(classification_table, threshold))
-        lines = string_modifier.modify_query_parameter(lines)
-        lines = string_modifier.modify_body_parameter(lines)
-        lines = string_modifier.modify_path_parameter(lines)
+        lines = string_modifier.execute(lines)
         FileHandling.write(self._file_name, lines)
 
     

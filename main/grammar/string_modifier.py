@@ -5,7 +5,13 @@ class StringModifier:
     def __init__(self, classification):
         self._classification = classification
 
-    def modify_query_parameter(self, lines):
+    def execute(self, lines):
+        self._modify_query_parameter(lines)
+        self._modify_path_parameter(lines)
+        self._modify_body_parameter(lines)
+        return lines
+
+    def _modify_query_parameter(self, lines):
         state = 0
 
         for index, line in enumerate(lines):
@@ -25,7 +31,7 @@ class StringModifier:
 
         return lines
 
-    def modify_body_parameter(self, lines):
+    def _modify_body_parameter(self, lines):
         state = 0
 
         for index, line in enumerate(lines):
@@ -49,7 +55,7 @@ class StringModifier:
 
         return lines
 
-    def modify_path_parameter(self, lines):
+    def _modify_path_parameter(self, lines):
         state = 0
 
         for index, line in enumerate(lines):
