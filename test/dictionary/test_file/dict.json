@@ -1,0 +1,116 @@
+{
+  "restler_fuzzable_string": [
+    "fuzzstring"
+  ],
+  "restler_fuzzable_string_unquoted": [],
+  "restler_fuzzable_id": [
+    "fuzzstring"
+  ],
+  "restler_fuzzable_id_unquoted": [],
+  "restler_fuzzable_name": [
+    "fuzzstring"
+  ],
+  "restler_fuzzable_name_unquoted": [],
+  "restler_fuzzable_description": [
+    "fuzzstring"
+  ],
+  "restler_fuzzable_description_unquoted": [],
+  "restler_fuzzable_time_zone": [
+    "fuzzstring"
+  ],
+  "restler_fuzzable_time_zone_unquoted": [],
+  "restler_fuzzable_area": [
+    "fuzzstring"
+  ],
+  "restler_fuzzable_area_unquoted": [],
+  "restler_fuzzable_location": [
+    "fuzzstring"
+  ],
+  "restler_fuzzable_location_unquoted": [],
+  "restler_fuzzable_region": [
+    "fuzzstring"
+  ],
+  "restler_fuzzable_region_unquoted": [],
+  "restler_fuzzable_url": [
+    "fuzzstring"
+  ],
+  "restler_fuzzable_url_unquoted": [],
+  "restler_fuzzable_language": [
+    "fuzzstring"
+  ],
+  "restler_fuzzable_language_unquoted": [],
+  "restler_fuzzable_media_type": [
+    "fuzzstring"
+  ],
+  "restler_fuzzable_media_type_unquoted": [],
+  "restler_fuzzable_color": [
+    "fuzzstring"
+  ],
+  "restler_fuzzable_color_unquoted": [],
+  "restler_fuzzable_email": [
+    "fuzzstring"
+  ],
+  "restler_fuzzable_email_unquoted": [],
+  "restler_fuzzable_query": [
+    "fuzzstring"
+  ],
+  "restler_fuzzable_query_unquoted": [],
+  "restler_fuzzable_path": [
+    "fuzzstring"
+  ],
+  "restler_fuzzable_path_unquoted": [],
+  "restler_fuzzable_domain": [
+    "fuzzstring"
+  ],
+  "restler_fuzzable_domain_unquoted": [],
+  "restler_fuzzable_token": [
+    "fuzzstring"
+  ],
+  "restler_fuzzable_token_unquoted": [],
+  "restler_fuzzable_category": [
+    "fuzzstring"
+  ],
+  "restler_fuzzable_category_unquoted": [],
+  "restler_fuzzable_ip": [
+    "fuzzstring"
+  ],
+  "restler_fuzzable_ip_unquoted": [],
+  "restler_fuzzable_string_datetime": [
+    "fuzzstring"
+  ],
+  "restler_fuzzable_string_datetime_unquoted": [],
+  "restler_fuzzable_string_date": [
+    "fuzzstring"
+  ],
+  "restler_fuzzable_string_date_unquoted": [],
+  "restler_fuzzable_datetime": [
+    "2019-06-26T20:20:39+00:00"
+  ],
+  "restler_fuzzable_datetime_unquoted": [],
+  "restler_fuzzable_date": [
+    "2019-06-26"
+  ],
+  "restler_fuzzable_date_unquoted": [],
+  "restler_fuzzable_uuid4": [
+    "566048da-ed19-4cd3-8e0a-b7e0e1ec4d72"
+  ],
+  "restler_fuzzable_uuid4_unquoted": [],
+  "restler_fuzzable_int": [
+    "1"
+  ],
+  "restler_fuzzable_number": [
+    "1.23"
+  ],
+  "restler_fuzzable_bool": [
+    "true"
+  ],
+  "restler_fuzzable_object": [
+    "{ \"fuzz\": false }"
+  ],
+  "restler_custom_payload": {},
+  "restler_custom_payload_unquoted": {},
+  "restler_custom_payload_uuid4_suffix": {
+    "id": "id",
+    "merge_request_id": "mergereque"
+  }
+}

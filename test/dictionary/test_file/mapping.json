@@ -1,0 +1,86 @@
+{
+  "restler_fuzzable_string": [
+    "fuzzstring"
+  ],
+  "restler_fuzzable_id": [
+    "fuzzstring"
+  ],
+  "restler_fuzzable_name": [
+    "David",
+    "Mike",
+    "Kay"
+  ],
+  "restler_fuzzable_description": [
+    "first_commit",
+    "this_is_a_book"
+  ],
+  "restler_fuzzable_time_zone": [
+    "Europe",
+    "Asia"
+  ],
+  "restler_fuzzable_area": [
+    "America"
+  ],
+  "restler_fuzzable_location": [
+    "Araguaina",
+    "Argentina"
+  ],
+  "restler_fuzzable_region": [
+    "Buenos_Aires"
+  ],
+  "restler_fuzzable_url": [
+    "https://www.google.com.tw",
+    "https://www.youtube.com/",
+    "https://tw.yahoo.com/"
+  ],
+  "restler_fuzzable_language": [
+    "zh",
+    "en",
+    "ja"
+  ],
+  "restler_fuzzable_media_type": [
+    "image",
+    "video",
+    "audio"
+  ],
+  "restler_fuzzable_color": [
+    "4F21EA",
+    "grayscale"
+  ],
+  "restler_fuzzable_email": [
+    "appleisgood4882@gmail.com",
+    "bananabad2246@gmail.com",
+    "davidangel55413@gmail.com"
+  ],
+  "restler_fuzzable_query": [
+    "apple",
+    "music",
+    "image"
+  ],
+  "restler_fuzzable_path": [
+    "D:\\",
+    "/home",
+    "/home/bin"
+  ],
+  "restler_fuzzable_domain": [
+    "wikipedia.org",
+    "google.com",
+    "youtube.com"
+  ],
+  "restler_fuzzable_token": [
+    "AF",
+    "498fe2fd-1fb3-4816-86fc-c50483e795f1"
+  ],
+  "restler_fuzzable_category": [
+    "json"
+  ],
+  "restler_fuzzable_ip": [
+    "8.8.8.8"
+  ],
+  "restler_fuzzable_string_datetime": [
+    "2019-06-26T20:20:39+00:00"
+  ],
+  "restler_fuzzable_string_date": [
+    "2019-06-26"
+  ]
+}
