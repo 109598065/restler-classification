@@ -185,7 +185,7 @@ req_collection.add_request(request)'''
      primitives.restler_fuzzable_string("fuzzstring", quoted=False),'''
         lines = lines.split('\n')
 
-        string_modifier = StringModifier(Word2vec(self._classification_table))
+        string_modifier = StringModifier(Word2vec(self._classification_table, 0.75))
         lines = string_modifier.modify_query_parameter(lines)
         self.assertTrue(lines)
         self.assertEqual('     primitives.restler_static_string("id="),', lines[0])

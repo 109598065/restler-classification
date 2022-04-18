@@ -24,13 +24,13 @@ class GrammarModifier:
         FileHandling.write(self._file_name, lines)
 
     # todo
-    def execute_word2vec_similarity(self):
+    def execute_word2vec_similarity(self, threshold):
         classification_table = configuration.string_classification_table
         lines = FileHandling().read(self._file_name)
         if not os.path.exists(self._backup_file_name):
             os.rename(self._file_name, self._backup_file_name)
 
-        string_modifier = StringModifier(Word2vec(classification_table))
+        string_modifier = StringModifier(Word2vec(classification_table, threshold))
         lines = string_modifier.modify_query_parameter(lines)
         lines = string_modifier.modify_body_parameter(lines)
         lines = string_modifier.modify_path_parameter(lines)
