@@ -1,11 +1,11 @@
 import unittest
-import configuration
 from main.grammar.similarity import Similarity
+from test.grammar.test_file.classification_table import string_classification_table
 
 
 class SimilarityTestCase(unittest.TestCase):
     def setUp(self) -> None:
-        self._classification_table = configuration.string_classification_table
+        self._classification_table = string_classification_table
 
     def test_belong_the_classification(self):
         similarity = Similarity(self._classification_table, 0.8)

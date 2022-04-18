@@ -1,13 +1,13 @@
 import unittest
-import configuration
 from main.grammar.similarity import Similarity
 from main.grammar.string_modifier import StringModifier
 from main.grammar.word2vec import Word2vec
+from test.grammar.test_file.classification_table import string_classification_table
 
 
 class StringModifierTestCase(unittest.TestCase):
     def setUp(self) -> None:
-        self._classification_table = configuration.string_classification_table
+        self._classification_table = string_classification_table
 
     def test_http_get_modify_customize_string_with_similarity(self):
         lines = '''     primitives.restler_static_string("id="),
