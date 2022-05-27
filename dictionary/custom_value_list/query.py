@@ -1,11 +1,11 @@
-query_correct = [
-'video',
-'music',
-'image'
+queries_correct = [
+    'video',
+    'music',
+    'image'
 ]
 
-query_incorrect = [
-'not_a_good_query_value'
+queries_incorrect = [
+    'not_a_good_query_value'
 ]
 
-query = query_correct + query_incorrect
+queries = queries_correct + queries_incorrect

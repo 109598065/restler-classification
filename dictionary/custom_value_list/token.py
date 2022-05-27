@@ -1,9 +1,9 @@
-token_correct = [
-'fuzzstring'
+tokens_correct = [
+    'fuzzstring'
 ]
 
-token_incorrect = [
-'not_a_good_token'
+tokens_incorrect = [
+    'not_a_good_token'
 ]
 
-token = token_correct + token_incorrect
+tokens = tokens_correct + tokens_incorrect

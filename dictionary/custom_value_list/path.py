@@ -1,15 +1,15 @@
-path_correct = [
-'D:\\',
-'/home',
-'/home/bin'
+paths_correct = [
+    'D:\\',
+    '/home',
+    '/home/bin'
 ]
 
-path_incorrect = [
-'D:/',
-'\\home',
-'\\home\\bin',
-'D:',
-'http://'
+paths_incorrect = [
+    'D:/',
+    '\\home',
+    '\\home\\bin',
+    'D:',
+    'http://'
 ]
 
-path = path_correct + path_incorrect
+paths = paths_correct + paths_incorrect

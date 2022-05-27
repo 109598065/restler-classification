@@ -4,27 +4,27 @@ import time
 import string
 import itertools
 
-from custom_value_list.special_character import special_character
-from custom_value_list.id import id
-from custom_value_list.description import description
-from custom_value_list.name import name
-from custom_value_list.time_zone import time_zone
-from custom_value_list.area import area
-from custom_value_list.location import location
-from custom_value_list.region import region
-from custom_value_list.url import url
-from custom_value_list.language import language
-from custom_value_list.media_type import media_type
-from custom_value_list.color import color
-from custom_value_list.email import email
-from custom_value_list.query import query
-from custom_value_list.path import path
-from custom_value_list.domain import domain
-from custom_value_list.token import token
-from custom_value_list.category import category
-from custom_value_list.ip import ip
-from custom_value_list.string_datetime import string_datetime
-from custom_value_list.string_date import string_date
+from custom_value_list.common_string import common_strings
+from custom_value_list.id import ids
+from custom_value_list.description import descriptions
+from custom_value_list.name import names
+from custom_value_list.time_zone import time_zones
+from custom_value_list.area import areas
+from custom_value_list.location import locations
+from custom_value_list.region import regions
+from custom_value_list.url import urls
+from custom_value_list.language import languages
+from custom_value_list.media_type import media_types
+from custom_value_list.color import colors
+from custom_value_list.email import emails
+from custom_value_list.query import queries
+from custom_value_list.path import paths
+from custom_value_list.domain import domains
+from custom_value_list.token import tokens
+from custom_value_list.category import categories
+from custom_value_list.ip import ips
+from custom_value_list.string_datetime import string_datetimes
+from custom_value_list.string_date import string_dates
 
 random_seed=0
 # random_seed=time.time()
@@ -33,15 +33,14 @@ random.seed(random_seed)
 
 EXAMPLE_ARG = "examples"
 
-def gen_restler_fuzzable_string(**kwargs):   
+def gen_restler_fuzzable_string(**kwargs):
     example_value=None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
     # Add logic here to generate values
-    
     while True:
-        for i in special_character:
+        for i in common_strings:
             yield ''.join(i)
 
 
@@ -49,7 +48,7 @@ def placeholder_value_generator():
     while True:
         yield str(random.randint(-10, 10))
         yield ''.join(random.choices(string.ascii_letters + string.digits, k=1))
-    
+
 
 def gen_restler_fuzzable_string_unquoted(**kwargs):
     example_value=None
@@ -58,7 +57,7 @@ def gen_restler_fuzzable_string_unquoted(**kwargs):
 
     # Add logic here to generate values
     return placeholder_value_generator()
-    
+
 
 
 def gen_restler_fuzzable_id(**kwargs):
@@ -68,11 +67,11 @@ def gen_restler_fuzzable_id(**kwargs):
 
     # Add logic here to generate values
     while True:
-        for i in special_character:
+        for i in common_strings:
             yield ''.join(i)
-        for i in id:
+        for i in ids:
             yield ''.join(i)
-    
+
 
 
 def gen_restler_fuzzable_id_unquoted(**kwargs):
@@ -82,7 +81,7 @@ def gen_restler_fuzzable_id_unquoted(**kwargs):
 
     # Add logic here to generate values
     return placeholder_value_generator()
-    
+
 
 
 def gen_restler_fuzzable_name(**kwargs):
@@ -92,11 +91,11 @@ def gen_restler_fuzzable_name(**kwargs):
 
     # Add logic here to generate values
     while True:
-        for i in special_character:
+        for i in common_strings:
             yield ''.join(i)
-        for i in name:
+        for i in names:
             yield ''.join(i)
-    
+
 
 
 def gen_restler_fuzzable_name_unquoted(**kwargs):
@@ -106,7 +105,7 @@ def gen_restler_fuzzable_name_unquoted(**kwargs):
 
     # Add logic here to generate values
     return placeholder_value_generator()
-    
+
 
 
 def gen_restler_fuzzable_description(**kwargs):
@@ -116,11 +115,11 @@ def gen_restler_fuzzable_description(**kwargs):
 
     # Add logic here to generate values
     while True:
-        for i in special_character:
+        for i in common_strings:
             yield ''.join(i)
-        for i in description:
+        for i in descriptions:
             yield ''.join(i)
-    
+
 
 
 def gen_restler_fuzzable_description_unquoted(**kwargs):
@@ -130,7 +129,7 @@ def gen_restler_fuzzable_description_unquoted(**kwargs):
 
     # Add logic here to generate values
     return placeholder_value_generator()
-    
+
 
 
 def gen_restler_fuzzable_time_zone(**kwargs):
@@ -140,11 +139,11 @@ def gen_restler_fuzzable_time_zone(**kwargs):
 
     # Add logic here to generate values
     while True:
-        for i in special_character:
+        for i in common_strings:
             yield ''.join(i)
-        for i in time_zone:
+        for i in time_zones:
             yield ''.join(i)
-    
+
 
 
 def gen_restler_fuzzable_time_zone_unquoted(**kwargs):
@@ -154,7 +153,7 @@ def gen_restler_fuzzable_time_zone_unquoted(**kwargs):
 
     # Add logic here to generate values
     return placeholder_value_generator()
-    
+
 
 
 def gen_restler_fuzzable_area(**kwargs):
@@ -164,11 +163,11 @@ def gen_restler_fuzzable_area(**kwargs):
 
     # Add logic here to generate values
     while True:
-        for i in special_character:
+        for i in common_strings:
             yield ''.join(i)
-        for i in area:
+        for i in areas:
             yield ''.join(i)
-    
+
 
 
 def gen_restler_fuzzable_area_unquoted(**kwargs):
@@ -178,7 +177,7 @@ def gen_restler_fuzzable_area_unquoted(**kwargs):
 
     # Add logic here to generate values
     return placeholder_value_generator()
-    
+
 
 
 def gen_restler_fuzzable_location(**kwargs):
@@ -188,11 +187,11 @@ def gen_restler_fuzzable_location(**kwargs):
 
     # Add logic here to generate values
     while True:
-        for i in special_character:
+        for i in common_strings:
             yield ''.join(i)
-        for i in location:
+        for i in locations:
             yield ''.join(i)
-    
+
 
 
 def gen_restler_fuzzable_location_unquoted(**kwargs):
@@ -202,7 +201,7 @@ def gen_restler_fuzzable_location_unquoted(**kwargs):
 
     # Add logic here to generate values
     return placeholder_value_generator()
-    
+
 
 
 def gen_restler_fuzzable_region(**kwargs):
@@ -212,11 +211,11 @@ def gen_restler_fuzzable_region(**kwargs):
 
     # Add logic here to generate values
     while True:
-        for i in special_character:
+        for i in common_strings:
             yield ''.join(i)
-        for i in region:
+        for i in regions:
             yield ''.join(i)
-    
+
 
 
 def gen_restler_fuzzable_region_unquoted(**kwargs):
@@ -226,7 +225,7 @@ def gen_restler_fuzzable_region_unquoted(**kwargs):
 
     # Add logic here to generate values
     return placeholder_value_generator()
-    
+
 
 
 def gen_restler_fuzzable_url(**kwargs):
@@ -236,16 +235,11 @@ def gen_restler_fuzzable_url(**kwargs):
 
     # Add logic here to generate values
     while True:
-        for i in special_character:
+        for i in common_strings:
             yield ''.join(i)
-        for i in url:
+        for i in urls:
             yield ''.join(i)
-        i = 5
-        for _ in range(100):
-            size = random.randint(i, i + 10)
-            yield 'http://' + ''.join(random.choices(string.ascii_letters + string.digits, k=size))
-            yield 'https://' + ''.join(random.choices(string.ascii_letters + string.digits, k=size))
-    
+
 
 
 def gen_restler_fuzzable_url_unquoted(**kwargs):
@@ -255,7 +249,7 @@ def gen_restler_fuzzable_url_unquoted(**kwargs):
 
     # Add logic here to generate values
     return placeholder_value_generator()
-    
+
 
 
 def gen_restler_fuzzable_language(**kwargs):
@@ -265,11 +259,11 @@ def gen_restler_fuzzable_language(**kwargs):
 
     # Add logic here to generate values
     while True:
-        for i in special_character:
+        for i in common_strings:
             yield ''.join(i)
-        for i in language:
+        for i in languages:
             yield ''.join(i)
-    
+
 
 
 def gen_restler_fuzzable_language_unquoted(**kwargs):
@@ -279,7 +273,7 @@ def gen_restler_fuzzable_language_unquoted(**kwargs):
 
     # Add logic here to generate values
     return placeholder_value_generator()
-    
+
 
 
 def gen_restler_fuzzable_media_type(**kwargs):
@@ -289,11 +283,11 @@ def gen_restler_fuzzable_media_type(**kwargs):
 
     # Add logic here to generate values
     while True:
-        for i in special_character:
+        for i in common_strings:
             yield ''.join(i)
-        for i in media_type:
+        for i in media_types:
             yield ''.join(i)
-    
+
 
 
 def gen_restler_fuzzable_media_type_unquoted(**kwargs):
@@ -303,7 +297,7 @@ def gen_restler_fuzzable_media_type_unquoted(**kwargs):
 
     # Add logic here to generate values
     return placeholder_value_generator()
-    
+
 
 
 def gen_restler_fuzzable_color(**kwargs):
@@ -313,14 +307,12 @@ def gen_restler_fuzzable_color(**kwargs):
 
     # Add logic here to generate values
     while True:
-        for i in special_character:
+        for i in common_strings:
             yield ''.join(i)
-        for i in color:
+        for i in colors:
             yield ''.join(i)
-        for _ in range(100):
-            color = "#" + ''.join([random.choice('0123456789ABCDEF') for _ in range(6)])
-            yield ''.join(color)
-    
+
+
 
 
 def gen_restler_fuzzable_color_unquoted(**kwargs):
@@ -330,7 +322,7 @@ def gen_restler_fuzzable_color_unquoted(**kwargs):
 
     # Add logic here to generate values
     return placeholder_value_generator()
-    
+
 
 
 def gen_restler_fuzzable_email(**kwargs):
@@ -339,25 +331,13 @@ def gen_restler_fuzzable_email(**kwargs):
         example_value = kwargs[EXAMPLE_ARG]
 
     # Add logic here to generate values
-    extensions = ['com', 'net', 'org', 'gov']
-    domains = ['gmail', 'yahoo', 'comcast', 'verizon', 'charter', 'hotmail', 'outlook', 'frontier']
-
     while True:
-        for i in special_character:
+        for i in common_strings:
             yield ''.join(i)
-        for i in email:
+        for i in emails:
             yield ''.join(i)
-        for _ in range(100):
-            winext = extensions[random.randint(0, len(extensions) - 1)]
-            windom = domains[random.randint(0, len(domains) - 1)]
 
-            acclen = random.randint(1, 20)
 
-            winacc = ''.join(random.choice(string.ascii_lowercase + string.digits) for _ in range(acclen))
-
-            finale = winacc + "@" + windom + "." + winext
-            yield ''.join(finale)
-    
 
 
 def gen_restler_fuzzable_email_unquoted(**kwargs):
@@ -367,7 +347,7 @@ def gen_restler_fuzzable_email_unquoted(**kwargs):
 
     # Add logic here to generate values
     return placeholder_value_generator()
-    
+
 
 
 def gen_restler_fuzzable_query(**kwargs):
@@ -377,11 +357,11 @@ def gen_restler_fuzzable_query(**kwargs):
 
     # Add logic here to generate values
     while True:
-        for i in special_character:
+        for i in common_strings:
             yield ''.join(i)
-        for i in query:
+        for i in queries:
             yield ''.join(i)
-    
+
 
 
 def gen_restler_fuzzable_query_unquoted(**kwargs):
@@ -391,7 +371,7 @@ def gen_restler_fuzzable_query_unquoted(**kwargs):
 
     # Add logic here to generate values
     return placeholder_value_generator()
-    
+
 
 
 def gen_restler_fuzzable_path(**kwargs):
@@ -401,11 +381,11 @@ def gen_restler_fuzzable_path(**kwargs):
 
     # Add logic here to generate values
     while True:
-        for i in special_character:
+        for i in common_strings:
             yield ''.join(i)
-        for i in path:
+        for i in paths:
             yield ''.join(i)
-    
+
 
 
 def gen_restler_fuzzable_path_unquoted(**kwargs):
@@ -415,7 +395,7 @@ def gen_restler_fuzzable_path_unquoted(**kwargs):
 
     # Add logic here to generate values
     return placeholder_value_generator()
-    
+
 
 
 def gen_restler_fuzzable_domain(**kwargs):
@@ -425,11 +405,11 @@ def gen_restler_fuzzable_domain(**kwargs):
 
     # Add logic here to generate values
     while True:
-        for i in special_character:
+        for i in common_strings:
             yield ''.join(i)
-        for i in domain:
+        for i in domains:
             yield ''.join(i)
-    
+
 
 
 def gen_restler_fuzzable_domain_unquoted(**kwargs):
@@ -439,7 +419,7 @@ def gen_restler_fuzzable_domain_unquoted(**kwargs):
 
     # Add logic here to generate values
     return placeholder_value_generator()
-    
+
 
 
 def gen_restler_fuzzable_token(**kwargs):
@@ -449,11 +429,11 @@ def gen_restler_fuzzable_token(**kwargs):
 
     # Add logic here to generate values
     while True:
-        for i in special_character:
+        for i in common_strings:
             yield ''.join(i)
-        for i in token:
+        for i in tokens:
             yield ''.join(i)
-    
+
 
 
 def gen_restler_fuzzable_token_unquoted(**kwargs):
@@ -463,7 +443,7 @@ def gen_restler_fuzzable_token_unquoted(**kwargs):
 
     # Add logic here to generate values
     return placeholder_value_generator()
-    
+
 
 
 def gen_restler_fuzzable_category(**kwargs):
@@ -473,11 +453,11 @@ def gen_restler_fuzzable_category(**kwargs):
 
     # Add logic here to generate values
     while True:
-        for i in special_character:
+        for i in common_strings:
             yield ''.join(i)
-        for i in category:
+        for i in categories:
             yield ''.join(i)
-    
+
 
 
 def gen_restler_fuzzable_category_unquoted(**kwargs):
@@ -487,7 +467,7 @@ def gen_restler_fuzzable_category_unquoted(**kwargs):
 
     # Add logic here to generate values
     return placeholder_value_generator()
-    
+
 
 
 def gen_restler_fuzzable_ip(**kwargs):
@@ -497,16 +477,11 @@ def gen_restler_fuzzable_ip(**kwargs):
 
     # Add logic here to generate values
     while True:
-        for i in special_character:
+        for i in common_strings:
             yield ''.join(i)
-        for i in ip:
+        for i in ips:
             yield ''.join(i)
-        for _ in range(100):
-            a = random.randint(0, 255)
-            b = random.randint(0, 255)
-            c = random.randint(0, 255)
-            d = random.randint(0, 255)
-            yield ''.join('%s.%s.%s.%s' % (a, b, c, d))
+
 
 
 def gen_restler_fuzzable_ip_unquoted(**kwargs):
@@ -516,7 +491,7 @@ def gen_restler_fuzzable_ip_unquoted(**kwargs):
 
     # Add logic here to generate values
     return placeholder_value_generator()
-    
+
 
 
 def gen_restler_fuzzable_string_datetime(**kwargs):
@@ -525,22 +500,12 @@ def gen_restler_fuzzable_string_datetime(**kwargs):
         example_value = kwargs[EXAMPLE_ARG]
 
     # Add logic here to generate values
-    start_list = (1976, 1, 1, 0, 0, 0, 0, 0, 0)
-    end_list = (2022, 12, 31, 23, 59, 59, 0, 0, 0)
-    start = time.mktime(start_list)
-    end = time.mktime(end_list)
-
     while True:
-        for i in special_character:
+        for i in common_strings:
             yield ''.join(i)
-        for i in string_datetime:
+        for i in string_datetimes:
             yield ''.join(i)
-        for _ in range(100):
-            t = random.randint(start, end)
-            date_tuple = time.localtime(t)
-            date = time.strftime('%Y-%m-%d %H:%M:%S', date_tuple)
-            yield''.join(date)
-    
+
 
 
 def gen_restler_fuzzable_string_datetime_unquoted(**kwargs):
@@ -550,32 +515,22 @@ def gen_restler_fuzzable_string_datetime_unquoted(**kwargs):
 
     # Add logic here to generate values
     return placeholder_value_generator()
-    
+
 
 
 def gen_restler_fuzzable_string_date(**kwargs):
     example_value=None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
-    
+
 
     # Add logic here to generate values
-    start_list = (1976, 1, 1, 0, 0, 0, 0, 0, 0)
-    end_list = (2022, 12, 31, 23, 59, 59, 0, 0, 0)
-    start = time.mktime(start_list)
-    end = time.mktime(end_list)
-
     while True:
-        for i in special_character:
+        for i in common_strings:
             yield ''.join(i)
-        for i in string_date:
+        for i in string_dates:
             yield ''.join(i)
-        for _ in range(100):
-            t = random.randint(start, end)
-            date_tuple = time.localtime(t)
-            date = time.strftime("%Y-%m-%d", date_tuple)
-            yield ''.join(date)
-    
+
 
 
 def gen_restler_fuzzable_string_date_unquoted(**kwargs):
@@ -585,7 +540,7 @@ def gen_restler_fuzzable_string_date_unquoted(**kwargs):
 
     # Add logic here to generate values
     return placeholder_value_generator()
-    
+
 
 
 def gen_restler_fuzzable_datetime(**kwargs):
@@ -596,7 +551,7 @@ def gen_restler_fuzzable_datetime(**kwargs):
     # Add logic here to generate values
     return placeholder_value_generator()
 
-    
+
 
 
 def gen_restler_fuzzable_datetime_unquoted(**kwargs):
@@ -606,7 +561,7 @@ def gen_restler_fuzzable_datetime_unquoted(**kwargs):
 
     # Add logic here to generate values
     return placeholder_value_generator()
-    
+
 
 
 def gen_restler_fuzzable_date(**kwargs):
@@ -616,7 +571,7 @@ def gen_restler_fuzzable_date(**kwargs):
 
     # Add logic here to generate values
     return placeholder_value_generator()
-    
+
 
 
 def gen_restler_fuzzable_date_unquoted(**kwargs):
@@ -626,7 +581,7 @@ def gen_restler_fuzzable_date_unquoted(**kwargs):
 
     # Add logic here to generate values
     return placeholder_value_generator()
-    
+
 
 
 def gen_restler_fuzzable_uuid4(**kwargs):
@@ -636,7 +591,7 @@ def gen_restler_fuzzable_uuid4(**kwargs):
 
     # Add logic here to generate values
     return placeholder_value_generator()
-    
+
 
 
 def gen_restler_fuzzable_uuid4_unquoted(**kwargs):
@@ -646,7 +601,7 @@ def gen_restler_fuzzable_uuid4_unquoted(**kwargs):
 
     # Add logic here to generate values
     return placeholder_value_generator()
-    
+
 
 
 def gen_restler_fuzzable_int(**kwargs):
@@ -656,7 +611,7 @@ def gen_restler_fuzzable_int(**kwargs):
 
     # Add logic here to generate values
     return placeholder_value_generator()
-    
+
 
 
 def gen_restler_fuzzable_number(**kwargs):
@@ -666,7 +621,7 @@ def gen_restler_fuzzable_number(**kwargs):
 
     # Add logic here to generate values
     return placeholder_value_generator()
-    
+
 
 
 def gen_restler_fuzzable_bool(**kwargs):
@@ -676,7 +631,7 @@ def gen_restler_fuzzable_bool(**kwargs):
 
     # Add logic here to generate values
     return placeholder_value_generator()
-    
+
 
 
 def gen_restler_fuzzable_object(**kwargs):
@@ -686,7 +641,7 @@ def gen_restler_fuzzable_object(**kwargs):
 
     # Add logic here to generate values
     return placeholder_value_generator()
-    
+
 value_generators = {
 	"restler_fuzzable_string": gen_restler_fuzzable_string,
 	"restler_fuzzable_string_unquoted": None,

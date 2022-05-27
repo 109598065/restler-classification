@@ -1,10 +1,10 @@
-description_correct = [
-'First_commit.'
-'This_is_a_book.'
+descriptions_correct = [
+    'First_commit.'
+    'This_is_a_book.'
 ]
 
-description_incorrect = [
-'_________'
+descriptions_incorrect = [
+    '_________'
 ]
 
-description = description_correct + description_incorrect
+descriptions = descriptions_correct + descriptions_incorrect

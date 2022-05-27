@@ -1,9 +1,9 @@
-id_correct = [
-'fuzzstring'
+ids_correct = [
+    'fuzzstring'
 ]
 
-id_incorrect = [
-'not_fuzzstring'
+ids_incorrect = [
+    'not_fuzzstring'
 ]
 
-id = id_correct + id_incorrect
+ids = ids_correct + ids_incorrect

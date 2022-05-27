@@ -1,13 +1,13 @@
-domain_correct = [
-'wikipedia.org',
-'google.com',
-'youtube.com'
+domains_correct = [
+    'wikipedia.org',
+    'google.com',
+    'youtube.com'
 ]
 
-domain_incorrect = [
-'https://www.google.com.tw',
-'https://www.youtube.com',
-'https://tw.yahoo.com'
+domains_incorrect = [
+    'https://www.google.com.tw',
+    'https://www.youtube.com',
+    'https://tw.yahoo.com'
 ]
 
-domain = domain_correct + domain_incorrect
+domains = domains_correct + domains_incorrect
