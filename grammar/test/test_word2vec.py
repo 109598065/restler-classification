@@ -1,6 +1,6 @@
 import unittest
-from main.grammar.word2vec import Word2vec
-from test.grammar.test_file.classification_table import string_classification_table
+from grammar.main.word2vec import Word2vec
+from grammar.test.test_file.classification_table import string_classification_table
 
 
 class Word2VecTestCase(unittest.TestCase):

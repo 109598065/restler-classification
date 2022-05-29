@@ -24,7 +24,7 @@ class Similarity:
             return classification
         return None
 
-    def _compound_word_processing(self, word):
+    def _compound_word_processing(self, word):  # todo
         snake_case_words = re.sub(r'(?<!^)(?=[A-Z])', '_', word).lower()
         split_words = snake_case_words.split('_')
         split_words.append(snake_case_words)

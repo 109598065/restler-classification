@@ -1,0 +1,5 @@
+{
+  "disable_cert_validation": true,
+  "max_combinations": 512,
+  "custom_value_generators": "D:\\restler-test\\Compile\\custom_value_gen_template.py"
+}

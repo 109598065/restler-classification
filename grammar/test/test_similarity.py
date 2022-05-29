@@ -1,6 +1,6 @@
 import unittest
-from main.grammar.similarity import Similarity
-from test.grammar.test_file.classification_table import string_classification_table
+from grammar.main.similarity import Similarity
+from grammar.test.test_file.classification_table import string_classification_table
 
 
 class SimilarityTestCase(unittest.TestCase):

@@ -1,8 +1,8 @@
 import os
 import unittest
 from pathlib import Path
-from main.grammar.file_handling import FileHandling
-from main.grammar.grammar_modifier import GrammarModifier
+from grammar.main.file_handling import FileHandling
+from grammar.main.grammar_modifier import GrammarModifier
 
 
 class GrammarModifierTestCase(unittest.TestCase):

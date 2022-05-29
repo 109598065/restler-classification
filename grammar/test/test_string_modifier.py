@@ -1,8 +1,8 @@
 import unittest
-from main.grammar.similarity import Similarity
-from main.grammar.string_modifier import StringModifier
-from main.grammar.word2vec import Word2vec
-from test.grammar.test_file.classification_table import string_classification_table
+from grammar.main.similarity import Similarity
+from grammar.main.string_modifier import StringModifier
+from grammar.main.word2vec import Word2vec
+from grammar.test.test_file.classification_table import string_classification_table
 
 
 class StringModifierTestCase(unittest.TestCase):

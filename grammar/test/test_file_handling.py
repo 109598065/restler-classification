@@ -1,7 +1,7 @@
 import unittest
 import os
 from pathlib import Path
-from main.grammar.file_handling import FileHandling
+from grammar.main.file_handling import FileHandling
 
 
 class FileHandlingTestCase(unittest.TestCase):
