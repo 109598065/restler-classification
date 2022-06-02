@@ -1,5 +1,6 @@
 import re
 import gensim.downloader
+from grammar.main.utility.word_processing import compound_word_processing
 
 model = gensim.downloader.load('glove-twitter-25')  # todo
 
@@ -11,7 +12,7 @@ class Word2vec:
         self._model = model
 
     def classify(self, word):
-        split_words = self._compound_word_processing(word)
+        split_words = compound_word_processing(word)
         max_similar = -1
         classification = ''
 
@@ -26,9 +27,3 @@ class Word2vec:
         if max_similar > self._threshold and classification != '':
             return classification
         return None
-
-    def _compound_word_processing(self, word):  # todo
-        snake_case_words = re.sub(r'(?<!^)(?=[A-Z])', '_', word).lower()
-        split_words = snake_case_words.split('_')
-        split_words.append(snake_case_words)
-        return split_words

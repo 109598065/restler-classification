@@ -1,5 +1,6 @@
 import re
 from difflib import SequenceMatcher
+from grammar.main.utility.word_processing import compound_word_processing
 
 
 class Similarity:
@@ -8,7 +9,7 @@ class Similarity:
         self._threshold = threshold
 
     def classify(self, word):
-        split_words = self._compound_word_processing(word)
+        split_words = compound_word_processing(word)
         max_similar = 0.0
         classification = ''
 
@@ -23,9 +24,3 @@ class Similarity:
         if max_similar > self._threshold:
             return classification
         return None
-
-    def _compound_word_processing(self, word):  # todo
-        snake_case_words = re.sub(r'(?<!^)(?=[A-Z])', '_', word).lower()
-        split_words = snake_case_words.split('_')
-        split_words.append(snake_case_words)
-        return split_words

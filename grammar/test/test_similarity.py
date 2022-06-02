@@ -15,10 +15,6 @@ class SimilarityTestCase(unittest.TestCase):
         similarity = Similarity(self._classification_table, 0.8)
         self.assertEqual(None, similarity.classify('apple'))
 
-    def test_compound_word_processing(self):
-        similarity = Similarity(self._classification_table, 0.8)
-        self.assertEqual(['media', 'type', 'media_type'], similarity._compound_word_processing('media_type'))
-
     def test_compound_word_direct_classify(self):
         word = 'media_type'
         similarity = Similarity(self._classification_table, 0.9)

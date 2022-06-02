@@ -1,7 +1,7 @@
 import os
 import unittest
 from pathlib import Path
-from grammar.main.file_handling import FileHandling
+from grammar.main.utility.file_handling import FileHandling
 from grammar.main.grammar_modifier import GrammarModifier
 
 
@@ -15,7 +15,7 @@ class GrammarModifierTestCase(unittest.TestCase):
     def test_modify(self):
         try:
             grammar_modifier = GrammarModifier(self._file_name, self._backup_file_name)
-            grammar_modifier.execute_similarity(0.8)
+            grammar_modifier.execute_default_similarity(0.8)
             self.assertTrue(Path.exists(self._file_name))
             self.assertTrue(Path.exists(self._backup_file_name))
             lines = FileHandling().read(self._file_name)

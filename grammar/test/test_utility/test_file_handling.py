@@ -1,12 +1,12 @@
 import unittest
 import os
 from pathlib import Path
-from grammar.main.file_handling import FileHandling
+from grammar.main.utility.file_handling import FileHandling
 
 
 class FileHandlingTestCase(unittest.TestCase):
     def setUp(self) -> None:
-        path = 'test_file/grammar_shutterstock.py'
+        path = '../test_file/grammar_shutterstock.py'
         backup_path = path.replace('.py', '_backup.py')
         self._file_name = Path(__file__).parent.absolute().joinpath(path)
         self._backup_file_name = Path(__file__).parent.absolute().joinpath(backup_path)
