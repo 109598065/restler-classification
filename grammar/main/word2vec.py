@@ -1,4 +1,3 @@
-import re
 import gensim.downloader
 from grammar.main.utility.word_processing import compound_word_processing
 

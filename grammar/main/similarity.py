@@ -1,4 +1,3 @@
-import re
 from difflib import SequenceMatcher
 from grammar.main.utility.word_processing import compound_word_processing
 
