@@ -1,8 +1,5 @@
-import typing
 import random
-import time
 import string
-import itertools
 
 from custom_value_list.common_string import common_strings
 from custom_value_list.id import ids
@@ -26,15 +23,16 @@ from custom_value_list.ip import ips
 from custom_value_list.string_datetime import string_datetimes
 from custom_value_list.string_date import string_dates
 
-random_seed=0
+random_seed = 0
 # random_seed=time.time()
 print(f"Value generator random seed: {random_seed}")
 random.seed(random_seed)
 
 EXAMPLE_ARG = "examples"
 
+
 def gen_restler_fuzzable_string(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
@@ -51,7 +49,7 @@ def placeholder_value_generator():
 
 
 def gen_restler_fuzzable_string_unquoted(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
@@ -59,9 +57,8 @@ def gen_restler_fuzzable_string_unquoted(**kwargs):
     return placeholder_value_generator()
 
 
-
 def gen_restler_fuzzable_id(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
@@ -73,9 +70,8 @@ def gen_restler_fuzzable_id(**kwargs):
             yield ''.join(i)
 
 
-
 def gen_restler_fuzzable_id_unquoted(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
@@ -83,9 +79,8 @@ def gen_restler_fuzzable_id_unquoted(**kwargs):
     return placeholder_value_generator()
 
 
-
 def gen_restler_fuzzable_name(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
@@ -97,9 +92,8 @@ def gen_restler_fuzzable_name(**kwargs):
             yield ''.join(i)
 
 
-
 def gen_restler_fuzzable_name_unquoted(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
@@ -107,9 +101,8 @@ def gen_restler_fuzzable_name_unquoted(**kwargs):
     return placeholder_value_generator()
 
 
-
 def gen_restler_fuzzable_description(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
@@ -121,9 +114,8 @@ def gen_restler_fuzzable_description(**kwargs):
             yield ''.join(i)
 
 
-
 def gen_restler_fuzzable_description_unquoted(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
@@ -131,9 +123,8 @@ def gen_restler_fuzzable_description_unquoted(**kwargs):
     return placeholder_value_generator()
 
 
-
 def gen_restler_fuzzable_time_zone(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
@@ -145,9 +136,8 @@ def gen_restler_fuzzable_time_zone(**kwargs):
             yield ''.join(i)
 
 
-
 def gen_restler_fuzzable_time_zone_unquoted(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
@@ -155,9 +145,8 @@ def gen_restler_fuzzable_time_zone_unquoted(**kwargs):
     return placeholder_value_generator()
 
 
-
 def gen_restler_fuzzable_area(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
@@ -169,9 +158,8 @@ def gen_restler_fuzzable_area(**kwargs):
             yield ''.join(i)
 
 
-
 def gen_restler_fuzzable_area_unquoted(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
@@ -179,9 +167,8 @@ def gen_restler_fuzzable_area_unquoted(**kwargs):
     return placeholder_value_generator()
 
 
-
 def gen_restler_fuzzable_location(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
@@ -193,9 +180,8 @@ def gen_restler_fuzzable_location(**kwargs):
             yield ''.join(i)
 
 
-
 def gen_restler_fuzzable_location_unquoted(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
@@ -203,9 +189,8 @@ def gen_restler_fuzzable_location_unquoted(**kwargs):
     return placeholder_value_generator()
 
 
-
 def gen_restler_fuzzable_region(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
@@ -217,9 +202,8 @@ def gen_restler_fuzzable_region(**kwargs):
             yield ''.join(i)
 
 
-
 def gen_restler_fuzzable_region_unquoted(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
@@ -227,9 +211,8 @@ def gen_restler_fuzzable_region_unquoted(**kwargs):
     return placeholder_value_generator()
 
 
-
 def gen_restler_fuzzable_url(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
@@ -241,9 +224,8 @@ def gen_restler_fuzzable_url(**kwargs):
             yield ''.join(i)
 
 
-
 def gen_restler_fuzzable_url_unquoted(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
@@ -251,9 +233,8 @@ def gen_restler_fuzzable_url_unquoted(**kwargs):
     return placeholder_value_generator()
 
 
-
 def gen_restler_fuzzable_language(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
@@ -265,9 +246,8 @@ def gen_restler_fuzzable_language(**kwargs):
             yield ''.join(i)
 
 
-
 def gen_restler_fuzzable_language_unquoted(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
@@ -275,9 +255,8 @@ def gen_restler_fuzzable_language_unquoted(**kwargs):
     return placeholder_value_generator()
 
 
-
 def gen_restler_fuzzable_media_type(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
@@ -289,9 +268,8 @@ def gen_restler_fuzzable_media_type(**kwargs):
             yield ''.join(i)
 
 
-
 def gen_restler_fuzzable_media_type_unquoted(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
@@ -299,9 +277,8 @@ def gen_restler_fuzzable_media_type_unquoted(**kwargs):
     return placeholder_value_generator()
 
 
-
 def gen_restler_fuzzable_color(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
@@ -313,10 +290,8 @@ def gen_restler_fuzzable_color(**kwargs):
             yield ''.join(i)
 
 
-
-
 def gen_restler_fuzzable_color_unquoted(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
@@ -324,9 +299,8 @@ def gen_restler_fuzzable_color_unquoted(**kwargs):
     return placeholder_value_generator()
 
 
-
 def gen_restler_fuzzable_email(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
@@ -338,10 +312,8 @@ def gen_restler_fuzzable_email(**kwargs):
             yield ''.join(i)
 
 
-
-
 def gen_restler_fuzzable_email_unquoted(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
@@ -349,9 +321,8 @@ def gen_restler_fuzzable_email_unquoted(**kwargs):
     return placeholder_value_generator()
 
 
-
 def gen_restler_fuzzable_query(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
@@ -363,9 +334,8 @@ def gen_restler_fuzzable_query(**kwargs):
             yield ''.join(i)
 
 
-
 def gen_restler_fuzzable_query_unquoted(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
@@ -373,9 +343,8 @@ def gen_restler_fuzzable_query_unquoted(**kwargs):
     return placeholder_value_generator()
 
 
-
 def gen_restler_fuzzable_path(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
@@ -387,9 +356,8 @@ def gen_restler_fuzzable_path(**kwargs):
             yield ''.join(i)
 
 
-
 def gen_restler_fuzzable_path_unquoted(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
@@ -397,9 +365,8 @@ def gen_restler_fuzzable_path_unquoted(**kwargs):
     return placeholder_value_generator()
 
 
-
 def gen_restler_fuzzable_domain(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
@@ -411,9 +378,8 @@ def gen_restler_fuzzable_domain(**kwargs):
             yield ''.join(i)
 
 
-
 def gen_restler_fuzzable_domain_unquoted(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
@@ -421,9 +387,8 @@ def gen_restler_fuzzable_domain_unquoted(**kwargs):
     return placeholder_value_generator()
 
 
-
 def gen_restler_fuzzable_token(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
@@ -435,9 +400,8 @@ def gen_restler_fuzzable_token(**kwargs):
             yield ''.join(i)
 
 
-
 def gen_restler_fuzzable_token_unquoted(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
@@ -445,9 +409,8 @@ def gen_restler_fuzzable_token_unquoted(**kwargs):
     return placeholder_value_generator()
 
 
-
 def gen_restler_fuzzable_category(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
@@ -459,9 +422,8 @@ def gen_restler_fuzzable_category(**kwargs):
             yield ''.join(i)
 
 
-
 def gen_restler_fuzzable_category_unquoted(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
@@ -469,9 +431,8 @@ def gen_restler_fuzzable_category_unquoted(**kwargs):
     return placeholder_value_generator()
 
 
-
 def gen_restler_fuzzable_ip(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
@@ -483,9 +444,8 @@ def gen_restler_fuzzable_ip(**kwargs):
             yield ''.join(i)
 
 
-
 def gen_restler_fuzzable_ip_unquoted(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
@@ -493,9 +453,8 @@ def gen_restler_fuzzable_ip_unquoted(**kwargs):
     return placeholder_value_generator()
 
 
-
 def gen_restler_fuzzable_string_datetime(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
@@ -507,9 +466,8 @@ def gen_restler_fuzzable_string_datetime(**kwargs):
             yield ''.join(i)
 
 
-
 def gen_restler_fuzzable_string_datetime_unquoted(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
@@ -517,12 +475,10 @@ def gen_restler_fuzzable_string_datetime_unquoted(**kwargs):
     return placeholder_value_generator()
 
 
-
 def gen_restler_fuzzable_string_date(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
-
 
     # Add logic here to generate values
     while True:
@@ -532,171 +488,160 @@ def gen_restler_fuzzable_string_date(**kwargs):
             yield ''.join(i)
 
 
-
 def gen_restler_fuzzable_string_date_unquoted(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
     # Add logic here to generate values
     return placeholder_value_generator()
-
 
 
 def gen_restler_fuzzable_datetime(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
     # Add logic here to generate values
     return placeholder_value_generator()
-
-
 
 
 def gen_restler_fuzzable_datetime_unquoted(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
     # Add logic here to generate values
     return placeholder_value_generator()
-
 
 
 def gen_restler_fuzzable_date(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
     # Add logic here to generate values
     return placeholder_value_generator()
-
 
 
 def gen_restler_fuzzable_date_unquoted(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
     # Add logic here to generate values
     return placeholder_value_generator()
-
 
 
 def gen_restler_fuzzable_uuid4(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
     # Add logic here to generate values
     return placeholder_value_generator()
-
 
 
 def gen_restler_fuzzable_uuid4_unquoted(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
     # Add logic here to generate values
     return placeholder_value_generator()
-
 
 
 def gen_restler_fuzzable_int(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
     # Add logic here to generate values
     return placeholder_value_generator()
-
 
 
 def gen_restler_fuzzable_number(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
     # Add logic here to generate values
     return placeholder_value_generator()
-
 
 
 def gen_restler_fuzzable_bool(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
     # Add logic here to generate values
     return placeholder_value_generator()
-
 
 
 def gen_restler_fuzzable_object(**kwargs):
-    example_value=None
+    example_value = None
     if EXAMPLE_ARG in kwargs:
         example_value = kwargs[EXAMPLE_ARG]
 
     # Add logic here to generate values
     return placeholder_value_generator()
 
+
 value_generators = {
-	"restler_fuzzable_string": gen_restler_fuzzable_string,
-	"restler_fuzzable_string_unquoted": None,
-	"restler_fuzzable_id": gen_restler_fuzzable_id,
-	"restler_fuzzable_id_unquoted": None,
-	"restler_fuzzable_name": gen_restler_fuzzable_name,
-	"restler_fuzzable_name_unquoted": None,
-	"restler_fuzzable_description": gen_restler_fuzzable_description,
-	"restler_fuzzable_description_unquoted": None,
-	"restler_fuzzable_time_zone": gen_restler_fuzzable_time_zone,
-	"restler_fuzzable_time_zone_unquoted": None,
-	"restler_fuzzable_area": gen_restler_fuzzable_area,
-	"restler_fuzzable_area_unquoted": None,
-	"restler_fuzzable_location": gen_restler_fuzzable_location,
-	"restler_fuzzable_location_unquoted": None,
-	"restler_fuzzable_region": gen_restler_fuzzable_region,
-	"restler_fuzzable_region_unquoted": None,
-	"restler_fuzzable_url": gen_restler_fuzzable_url,
-	"restler_fuzzable_url_unquoted": None,
-	"restler_fuzzable_language": gen_restler_fuzzable_language,
-	"restler_fuzzable_language_unquoted": None,
-	"restler_fuzzable_media_type": gen_restler_fuzzable_media_type,
-	"restler_fuzzable_media_type_unquoted": None,
-	"restler_fuzzable_color": gen_restler_fuzzable_color,
-	"restler_fuzzable_color_unquoted": None,
-	"restler_fuzzable_email": gen_restler_fuzzable_email,
-	"restler_fuzzable_email_unquoted": None,
-	"restler_fuzzable_query": gen_restler_fuzzable_query,
-	"restler_fuzzable_query_unquoted": None,
-	"restler_fuzzable_path": gen_restler_fuzzable_path,
-	"restler_fuzzable_path_unquoted": None,
-	"restler_fuzzable_domain": gen_restler_fuzzable_domain,
-	"restler_fuzzable_domain_unquoted": None,
-	"restler_fuzzable_token": gen_restler_fuzzable_token,
-	"restler_fuzzable_token_unquoted": None,
-	"restler_fuzzable_category": gen_restler_fuzzable_category,
-	"restler_fuzzable_category_unquoted": None,
-	"restler_fuzzable_ip": gen_restler_fuzzable_ip,
-	"restler_fuzzable_ip_unquoted": None,
-	"restler_fuzzable_string_datetime": gen_restler_fuzzable_datetime,
-	"restler_fuzzable_string_datetime_unquoted": None,
-	"restler_fuzzable_string_date": gen_restler_fuzzable_date,
-	"restler_fuzzable_string_date_unquoted": None,
-	"restler_fuzzable_datetime": None,
-	"restler_fuzzable_datetime_unquoted": None,
-	"restler_fuzzable_date": None,
-	"restler_fuzzable_date_unquoted": None,
-	"restler_fuzzable_uuid4": None,
-	"restler_fuzzable_uuid4_unquoted": None,
-	"restler_fuzzable_int": None,
-	"restler_fuzzable_number": None,
-	"restler_fuzzable_bool": None,
-	"restler_fuzzable_object": None,
-	"restler_custom_payload": {
-	},
-	"restler_custom_payload_unquoted": {
-	},
+    "restler_fuzzable_string": gen_restler_fuzzable_string,
+    "restler_fuzzable_string_unquoted": None,
+    "restler_fuzzable_id": gen_restler_fuzzable_id,
+    "restler_fuzzable_id_unquoted": None,
+    "restler_fuzzable_name": gen_restler_fuzzable_name,
+    "restler_fuzzable_name_unquoted": None,
+    "restler_fuzzable_description": gen_restler_fuzzable_description,
+    "restler_fuzzable_description_unquoted": None,
+    "restler_fuzzable_time_zone": gen_restler_fuzzable_time_zone,
+    "restler_fuzzable_time_zone_unquoted": None,
+    "restler_fuzzable_area": gen_restler_fuzzable_area,
+    "restler_fuzzable_area_unquoted": None,
+    "restler_fuzzable_location": gen_restler_fuzzable_location,
+    "restler_fuzzable_location_unquoted": None,
+    "restler_fuzzable_region": gen_restler_fuzzable_region,
+    "restler_fuzzable_region_unquoted": None,
+    "restler_fuzzable_url": gen_restler_fuzzable_url,
+    "restler_fuzzable_url_unquoted": None,
+    "restler_fuzzable_language": gen_restler_fuzzable_language,
+    "restler_fuzzable_language_unquoted": None,
+    "restler_fuzzable_media_type": gen_restler_fuzzable_media_type,
+    "restler_fuzzable_media_type_unquoted": None,
+    "restler_fuzzable_color": gen_restler_fuzzable_color,
+    "restler_fuzzable_color_unquoted": None,
+    "restler_fuzzable_email": gen_restler_fuzzable_email,
+    "restler_fuzzable_email_unquoted": None,
+    "restler_fuzzable_query": gen_restler_fuzzable_query,
+    "restler_fuzzable_query_unquoted": None,
+    "restler_fuzzable_path": gen_restler_fuzzable_path,
+    "restler_fuzzable_path_unquoted": None,
+    "restler_fuzzable_domain": gen_restler_fuzzable_domain,
+    "restler_fuzzable_domain_unquoted": None,
+    "restler_fuzzable_token": gen_restler_fuzzable_token,
+    "restler_fuzzable_token_unquoted": None,
+    "restler_fuzzable_category": gen_restler_fuzzable_category,
+    "restler_fuzzable_category_unquoted": None,
+    "restler_fuzzable_ip": gen_restler_fuzzable_ip,
+    "restler_fuzzable_ip_unquoted": None,
+    "restler_fuzzable_string_datetime": gen_restler_fuzzable_datetime,
+    "restler_fuzzable_string_datetime_unquoted": None,
+    "restler_fuzzable_string_date": gen_restler_fuzzable_date,
+    "restler_fuzzable_string_date_unquoted": None,
+    "restler_fuzzable_datetime": None,
+    "restler_fuzzable_datetime_unquoted": None,
+    "restler_fuzzable_date": None,
+    "restler_fuzzable_date_unquoted": None,
+    "restler_fuzzable_uuid4": None,
+    "restler_fuzzable_uuid4_unquoted": None,
+    "restler_fuzzable_int": None,
+    "restler_fuzzable_number": None,
+    "restler_fuzzable_bool": None,
+    "restler_fuzzable_object": None,
+    "restler_custom_payload": {
+    },
+    "restler_custom_payload_unquoted": {
+    },
 }
