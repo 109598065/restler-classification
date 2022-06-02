@@ -17,7 +17,7 @@ class ClassificationSetter:
             custom_value_list_path = Path(__file__).parent.absolute().joinpath('copy_classification/custom_value_list')
             shutil.copy(custom_value_gen_path, Path(self._directory, self._custom_value_gen))
             shutil.copytree(custom_value_list_path, Path(self._directory,
-                                                         'copy_classification/custom_value_list'))
+                                                         'custom_value_list'))
         except OSError as e:
             print(e)
 

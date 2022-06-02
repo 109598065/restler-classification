@@ -15,6 +15,7 @@ class ClassificationSetterTestCase(unittest.TestCase):
             setter.execute()
             self.assertTrue(Path.exists(Path(directory, engine_settings)))
             self.assertTrue(Path.exists(Path(directory, custom_value_gen)))
+            self.assertTrue(Path.exists(Path(directory, 'custom_value_list')))
         finally:
             shutil.rmtree(Path(directory))
 
