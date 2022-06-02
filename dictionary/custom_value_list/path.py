@@ -1,5 +1,7 @@
 paths_correct = [
+    'C:\\',
     'D:\\',
+    'E:\\',
     '/home',
     '/home/bin'
 ]

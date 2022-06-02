@@ -2,6 +2,10 @@ domains_correct = [
     'wikipedia.org',
     'google.com',
     'youtube.com'
+    'facebook.com',
+    'github.com',
+    'gitlab.com',
+    'spotify.com'
 ]
 
 domains_incorrect = [

@@ -1,7 +1,14 @@
 categories_correct = [
-    'json',
-    'xml',
-    'text'
+    'entertainment',
+    'news',
+    'politics',
+    'travel',
+    'food',
+    'Knowledge',
+    'law',
+    'mood',
+    'school',
+    'workplace'
 ]
 
 categories_incorrect = [

@@ -8,7 +8,7 @@ string_datetimes_correct = [
 
 string_datetimes_incorrect = [
     '2019-06-26',
-    '2019-02-30T20:20:39+00:00',
+    '2019-02-30T20:20:39+00:00'
 ]
 
 string_datetimes_random_generate_correct = []

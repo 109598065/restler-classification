@@ -1,11 +1,22 @@
 queries_correct = [
+'fuzzstring',
+    '0',
+    '1',
+    '2',
+    '3',
+    '6e7f585e-e0b4-11ec-9d64-0242ac120002',
+    '7927da06-e0b4-11ec-9d64-0242ac120002',
+    '613ac2a5-e314-4e9b-876b-06046aca2391',
+    '1bcc598d-731c-4255-82e7-fa6c6ba3a3a4',
     'video',
     'music',
     'image'
 ]
 
 queries_incorrect = [
-    'not_a_good_query_value'
+    '_________',
+    '#########',
+    '$$$$$$$$$'
 ]
 
 queries = queries_correct + queries_incorrect
