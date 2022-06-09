@@ -12,7 +12,6 @@ class DynamicSetter:
     def execute(self):
         try:
             self._create_engine_settings()
-            # shutil.copy('copy_classification/custom_value_gen_template', Path(self._directory, self._custom_value_gen))
         except OSError as e:
             print(e)
 

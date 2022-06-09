@@ -1,5 +1,5 @@
 queries_correct = [
-'fuzzstring',
+    'fuzzstring',
     '0',
     '1',
     '2',
