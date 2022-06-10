@@ -1,6 +1,6 @@
 import random
 
-ips_correct = [
+correct_ips = [
     '8.8.8.8',
     '8.8.4.4',
     '1.1.1.1',
@@ -22,7 +22,7 @@ ips_correct = [
     '101.102.103.104'
 ]
 
-ips_incorrect = [
+incorrect_ips = [
     '0.0.0.0',
     '256.256.256.256',
     '-1.-1.-1.-1'
@@ -30,12 +30,6 @@ ips_incorrect = [
 
 
 class PublicIp:
-
-    def get_list(self, number):
-        ip_list = []
-        for _ in range(0, number):
-            ip_list.append(self.get_ip())
-        return ip_list
 
     def get_ip(self):
         while True:
@@ -86,41 +80,45 @@ class PublicIp:
                 ip = None
             if ip is not None:
                 return ip
-        return '0.0.0.0'
+        return '1.0.0.0'
 
 
 class PrivateIp:
-
-    def get_list(self, number):
-        ip_list = []
-        for _ in range(0, number):
-            ip_list.append(self.get_ip())
-        return ip_list
 
     def get_ip(self):
         q = random.randint(0, 255)
         r = random.randint(0, 255)
         s = random.randint(0, 255)
-        ip_list = []
+        ips = []
 
         ip = "10." + str(q) + "." + str(r) + "." + str(s)
-        ip_list.append(ip)
+        ips.append(ip)
         ip = "172." + str(q) + "." + str(r) + "." + str(s)
-        ip_list.append(ip)
+        ips.append(ip)
         ip = "192.168." + str(r) + "." + str(s)
-        ip_list.append(ip)
+        ips.append(ip)
         ip = "127." + str(q) + "." + str(r) + "." + str(s)
-        ip_list.append(ip)
+        ips.append(ip)
         ip = "169.254." + str(r) + "." + str(s)
+        ips.append(ip)
 
-        ip_list.append(ip)
-        return random.choice(ip_list)
+        return random.choice(ips)
 
 
-private_ip = PrivateIp()
-private_ip_list = private_ip.get_list(20)
+def get_random_ips(private_ip_number=5, public_ip_number=5):
+    private_ip = PrivateIp()
+    private_ips = []
+    for _ in range(6):
+        private_ips.append(private_ip.get_ip())
 
-public_ip = PublicIp()
-public_ip_list = public_ip.get_list(80)
+    public_ip = PublicIp()
+    public_ips = []
+    for _ in range(24):
+        public_ips.append(public_ip.get_ip())
 
-ips = ips_correct + ips_incorrect + private_ip_list + public_ip_list
+    return private_ips + public_ips
+
+
+random_ips = get_random_ips(15, 15)
+
+ips = correct_ips + incorrect_ips + random_ips
