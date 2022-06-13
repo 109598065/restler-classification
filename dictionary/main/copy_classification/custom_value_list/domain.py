@@ -22,11 +22,29 @@ incorrect_domains = [
 
 class DomainGenerator:
 
-    def whois_request(self, domain, server='whois.verisign-grs.com', port=43):
-        """
-        Carries out the WHOIS request for a particular domain name, against a particular registrar.
-        This is not .com specific.
-        """
+    def get_random_available_domain(self):
+        while True:
+            domain_name = ''.join([random.choice(word.words) for _ in range(2)]) + '.com'
+            if self._is_domain_available(domain_name):
+                return domain_name
+        return 'not.domain.com'
+
+    def get_random_unavailable_domain(self):
+        while True:
+            domain_name = random.choice(word.words) + '.com'
+            if not self._is_domain_available(domain_name):
+                return domain_name
+        return 'example.com'
+
+    def _is_domain_available(self, domain_name):
+        whois_response = self._whois_request(domain_name)
+
+        if re.search("Domain Name: %s" % domain_name.upper(), whois_response):
+            return False
+        else:
+            return True
+
+    def _whois_request(self, domain, server='whois.verisign-grs.com', port=43):
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sock.connect((server, port))
         sock.send(("%s\r\n" % domain).encode('utf-8'))
@@ -39,35 +57,19 @@ class DomainGenerator:
         sock.close()
         return buff.decode('utf-8')
 
-    def is_domain_available(self, domain_name):
-        """
-        'Builds' the domain name (just appends .com as that's all I check right now)
-        then checks its WHOIS status - assuming we don't skip this in the args.
-        """
-        whois_response = self.whois_request(domain_name)
 
-        if re.search("Domain Name: %s" % domain_name.upper(), whois_response):
-            return False
-        else:
-            return True
-
-
-def get_random_domains(available_domain_count=15, not_available_domain_count=15):
+def get_random_domains(available_domain_count=15, unavailable_domain_count=15):
     domain_generator = DomainGenerator()
 
     available_domains = []
-    while len(available_domains) < available_domain_count:
-        domain_name = ''.join([random.choice(word.words) for _ in range(2)]) + '.com'
-        if domain_generator.is_domain_available(domain_name):
-            available_domains.append(domain_name)
+    for _ in range(available_domain_count):
+        available_domains.append(domain_generator.get_random_available_domain())
 
-    not_available_domains = []
-    while len(not_available_domains) < not_available_domain_count:
-        domain_name = random.choice(word.words) + '.com'
-        if not domain_generator.is_domain_available(domain_name):
-            not_available_domains.append(domain_name)
+    unavailable_domains = []
+    for _ in range(unavailable_domain_count):
+        unavailable_domains.append(domain_generator.get_random_unavailable_domain())
 
-    domains = available_domains + not_available_domains
+    domains = available_domains + unavailable_domains
     return domains
 
 
