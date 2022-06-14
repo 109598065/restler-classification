@@ -60,16 +60,11 @@ class DomainGenerator:
 
 def get_random_domains(available_domain_count=15, unavailable_domain_count=15):
     domain_generator = DomainGenerator()
-
-    available_domains = []
+    domains = []
     for _ in range(available_domain_count):
-        available_domains.append(domain_generator.get_random_available_domain())
-
-    unavailable_domains = []
+        domains.append(domain_generator.get_random_available_domain())
     for _ in range(unavailable_domain_count):
-        unavailable_domains.append(domain_generator.get_random_unavailable_domain())
-
-    domains = available_domains + unavailable_domains
+        domains.append(domain_generator.get_random_unavailable_domain())
     return domains
 
 
