@@ -29,9 +29,9 @@ incorrect_ips = [
 ]
 
 
-class PublicIp:
+class Ip:
 
-    def get_ip(self):
+    def get_public_ip(self):
         while True:
             p = random.randint(0, 255)
             q = random.randint(0, 255)
@@ -82,10 +82,7 @@ class PublicIp:
                 return ip
         return '1.0.0.0'
 
-
-class PrivateIp:
-
-    def get_ip(self):
+    def get_private_ip(self):
         q = random.randint(0, 255)
         r = random.randint(0, 255)
         s = random.randint(0, 255)
@@ -105,18 +102,14 @@ class PrivateIp:
         return random.choice(ips)
 
 
-def get_random_ips(private_ip_number=5, public_ip_number=5):
-    private_ip = PrivateIp()
-    private_ips = []
-    for _ in range(6):
-        private_ips.append(private_ip.get_ip())
-
-    public_ip = PublicIp()
-    public_ips = []
-    for _ in range(24):
-        public_ips.append(public_ip.get_ip())
-
-    return private_ips + public_ips
+def get_random_ips(private_ip_number=15, public_ip_number=15):
+    ip = Ip()
+    ips = []
+    for _ in range(public_ip_number):
+        ips.append(ip.get_public_ip())
+    for _ in range(private_ip_number):
+        ips.append(ip.get_private_ip())
+    return ips
 
 
 random_ips = get_random_ips(15, 15)
