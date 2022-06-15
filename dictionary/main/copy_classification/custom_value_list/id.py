@@ -1,3 +1,7 @@
+import random
+import secrets
+import uuid
+
 ids_correct = [
     'fuzzstring',
     '0',
@@ -16,4 +20,46 @@ ids_incorrect = [
     '$$$$$$$$$'
 ]
 
-ids = ids_correct + ids_incorrect
+
+class IdGenerator:
+
+    def get_bytes(self):
+        return secrets.token_bytes()
+
+    def get_int(self):
+        return random.randint(-5, 5)
+
+    def get_hex(self):
+        return secrets.token_hex()
+
+    def get_uuid1(self):
+        return uuid.uuid1()
+
+    def get_uuid4(self):
+        return uuid.uuid4()
+
+    def get_token(self):
+        return secrets.token_urlsafe()
+
+
+def get_random_ids(number=20):
+    id_generator = IdGenerator()
+    ids = []
+    for _ in range(number):
+        if _ % 6 == 0:
+            ids.append(id_generator.get_bytes())
+        elif _ % 6 == 1:
+            ids.append(id_generator.get_int())
+        elif _ % 6 == 2:
+            ids.append(id_generator.get_hex())
+        elif _ % 6 == 3:
+            ids.append(id_generator.get_uuid1())
+        elif _ % 6 == 4:
+            ids.append(id_generator.get_uuid4())
+        elif _ % 6 == 5:
+            ids.append(id_generator.get_token())
+    return ids
+
+
+random_ids = get_random_ids(20)
+ids = ids_correct + ids_incorrect + random_ids
