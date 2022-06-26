@@ -3,18 +3,18 @@ import re
 from pathlib import Path
 from grammar.main.grammar_modifier import GrammarModifier
 
-path1 = 'grammar/grammar_bitbucket.py'
-path2 = 'grammar/grammar_calendar.py'
-path3 = 'grammar/grammar_docker_engine_api.py'
-path4 = 'grammar/grammar_drive.py'
-path5 = 'grammar/grammar_giphy.py'
-path6 = 'grammar/grammar_instagram.py'
-path7 = 'grammar/grammar_shutterstock.py'
-path8 = 'grammar/grammar_stack_exchange.py'
-path9 = 'grammar/grammar_trello.py'
-path10 = 'grammar/grammar_twitter.py'
-path11 = 'grammar/grammar_vimeo.py'
-path12 = 'grammar/grammar_zoom.py'
+sources = '''grammar/grammar_bitbucket.py
+grammar/grammar_calendar.py
+grammar/grammar_docker_engine_api.py
+grammar/grammar_drive.py
+grammar/grammar_giphy.py
+grammar/grammar_instagram.py
+grammar/grammar_shutterstock.py
+grammar/grammar_trello.py
+grammar/grammar_twitter.py
+grammar/grammar_vimeo.py
+grammar/grammar_zoom.py'''
+sources = sources.split('\n')
 
 
 def count_fuzzable_string(file):
@@ -29,31 +29,31 @@ def count_fuzzable_string(file):
 
 if __name__ == '__main__':
 
-    paths = [path1, path2, path3, path4, path5, path6, path7, path8, path9, path10, path11, path12]
-
-    for path in paths:
+    for path in sources:
         print('path: ' + str(path))
-        backup_path = path.replace('.py', '_backup.py')
+        target_name = path.replace('.py', '_classification.py')
 
-        file_name = Path(path)
-        backup_file_name = Path(backup_path)
+        source = Path(path)
+        target = Path(target_name)
 
-        before_modify_count = count_fuzzable_string(file_name)
-        print('before modify fuzzable string count: ' + str(before_modify_count))
+        before_modify_count = count_fuzzable_string(source)
+        print(str(before_modify_count) + ' before modify fuzzable string count')
 
-        grammar_modifier = GrammarModifier(file_name, backup_file_name)
+        grammar_modifier = GrammarModifier(source, target)
 
-        for i in range(70, 95, 5):
+        for i in range(75, 95, 5):
             threshold = i / 100
 
             grammar_modifier.execute_default_similarity(threshold)
+            # grammar_modifier.execute_word2vec_similarity(threshold)
 
-            after_modify_count = count_fuzzable_string(file_name)
-            print('threshold: ' + str(threshold))
-            print('failure classification count: ' + str(after_modify_count))
+            after_modify_count = count_fuzzable_string(target)
+            success_number = before_modify_count - after_modify_count
 
-            if os.path.exists(path) and os.path.exists(backup_path):
-                os.remove(path)
-                os.rename(backup_file_name, path)
+            print(str(threshold) + ' threshold')
+            print(str(success_number) + ' Success number')
+            # print(str(success_number/before_modify_count) + ' Success rate')
+
+            os.remove(target)
 
         print('')
