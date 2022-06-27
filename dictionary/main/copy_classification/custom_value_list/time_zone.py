@@ -1,3 +1,5 @@
+import random
+
 time_zones_correct = [
     'Africa/Abidjan',
     'Africa/Accra',
@@ -391,4 +393,4 @@ time_zones_incorrect = [
     'America/Taipei'
 ]
 
-time_zones = time_zones_correct + time_zones_incorrect
+time_zones = random.sample(time_zones_correct, 40) + time_zones_incorrect

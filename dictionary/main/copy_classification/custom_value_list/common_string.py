@@ -23,7 +23,7 @@ null_chars = ['']
 
 random_generate = []
 i = 5
-for _ in range(100):
+for _ in range(10):
     size = random.randint(i, i + 10)
     random_generate.append(''.join(random.choices(string.ascii_letters + string.digits, k=size)))
 

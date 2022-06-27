@@ -1,7 +1,7 @@
 import random
 import re
 import socket
-from dictionary.main.copy_classification.custom_value_list.resource import word
+from .resource.word import words
 
 correct_domains = [
     'wikipedia.org',
@@ -24,14 +24,14 @@ class DomainGenerator:
 
     def get_random_available_domain(self):
         while True:
-            domain_name = ''.join([random.choice(word.words) for _ in range(2)]) + '.com'
+            domain_name = ''.join([random.choice(words) for _ in range(2)]) + '.com'
             if self._is_domain_available(domain_name):
                 return domain_name
         return 'not.domain.com'
 
     def get_random_unavailable_domain(self):
         while True:
-            domain_name = random.choice(word.words) + '.com'
+            domain_name = random.choice(words) + '.com'
             if not self._is_domain_available(domain_name):
                 return domain_name
         return 'example.com'
