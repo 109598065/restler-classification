@@ -24,19 +24,19 @@ ids_incorrect = [
 class IdGenerator:
 
     def get_bytes(self):
-        return secrets.token_bytes()
+        return str(secrets.token_bytes())
 
     def get_int(self):
-        return random.randint(-5, 5)
+        return str(random.randint(-5, 5))
 
     def get_hex(self):
         return secrets.token_hex()
 
     def get_uuid1(self):
-        return uuid.uuid1()
+        return str(uuid.uuid1())
 
     def get_uuid4(self):
-        return uuid.uuid4()
+        return str(uuid.uuid4())
 
     def get_token(self):
         return secrets.token_urlsafe()
