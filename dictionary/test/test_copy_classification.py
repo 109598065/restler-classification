@@ -1,8 +1,12 @@
 import unittest
+
 from dictionary.main.copy_classification.custom_value_list.domain import domains
+from dictionary.main.copy_classification.custom_value_list.email import emails
 from dictionary.main.copy_classification.custom_value_list.id import ids
 from dictionary.main.copy_classification.custom_value_list.ip import ips
 from dictionary.main.copy_classification.custom_value_list.path import paths
+from dictionary.main.copy_classification.custom_value_list.query import queries
+from dictionary.main.copy_classification.custom_value_list.string_datetime import string_datetimes
 
 
 class CopyClassificationTestCase(unittest.TestCase):
@@ -13,6 +17,7 @@ class CopyClassificationTestCase(unittest.TestCase):
             self.assertTrue(isinstance(_, str))
 
     def test_domain(self):
+        print(domains)
         self.assertTrue('wikipedia.org' in domains)
         self.assertTrue(len(domains) > 40)
         for _ in domains:
@@ -28,6 +33,24 @@ class CopyClassificationTestCase(unittest.TestCase):
         self.assertTrue('C:\\' in paths)
         self.assertTrue(len(ids) > 20)
         for _ in paths:
+            self.assertTrue(isinstance(_, str))
+
+    def test_email(self):
+        self.assertTrue(len(emails) > 20)
+        for _ in emails:
+            self.assertTrue(isinstance(_, str))
+
+    def test_query(self):
+        input_list = queries
+        self.assertTrue(len(input_list) > 5)
+        for _ in input_list:
+            self.assertTrue(isinstance(_, str))
+
+    def test_datetime(self):
+        input_list = string_datetimes
+        print(string_datetimes)
+        self.assertTrue(len(input_list) > 5)
+        for _ in input_list:
             self.assertTrue(isinstance(_, str))
 
 
