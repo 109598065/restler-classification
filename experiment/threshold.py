@@ -3,17 +3,13 @@ import re
 from pathlib import Path
 from grammar.main.grammar_modifier import GrammarModifier
 
-sources = '''grammar/grammar_bitbucket.py
-grammar/grammar_calendar.py
-grammar/grammar_docker_engine_api.py
-grammar/grammar_drive.py
-grammar/grammar_giphy.py
-grammar/grammar_instagram.py
-grammar/grammar_shutterstock.py
-grammar/grammar_trello.py
-grammar/grammar_twitter.py
-grammar/grammar_vimeo.py
-grammar/grammar_zoom.py'''
+sources = '''grammar/world_time.py
+grammar/geo_mark.py
+grammar/miataru.py
+grammar/musixmatch.py
+grammar/handwrytten.py
+grammar/twitter.py
+grammar/vimeo.py'''
 sources = sources.split('\n')
 
 
@@ -41,7 +37,7 @@ if __name__ == '__main__':
 
         grammar_modifier = GrammarModifier(source, target)
 
-        for i in range(75, 95, 5):
+        for i in range(55, 95, 5):
             threshold = i / 100
 
             grammar_modifier.execute_default_similarity(threshold)
