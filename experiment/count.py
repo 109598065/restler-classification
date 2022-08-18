@@ -1,29 +1,63 @@
 import re
 import json
+import csv
 from pathlib import Path
 
 
-def print_testing_summary(log_directory):
-    testing_summary = Path(log_directory, 'testing_summary.json')
-    log_testing_summary_parser = LogTestingSummaryParser(testing_summary)
-    print(log_testing_summary_parser.get_final_spec_coverage(), ' final_spec_coverage')
-    print(log_testing_summary_parser.get_number_of_success_request_sent(), ' number_of_success_request_sent')
-    print()
+class StatusCodeCSV:
+
+    def __init__(self, directory) -> None:
+        self._directory = directory
+
+    def execute(self):
+        self._create_csv()
+
+    def _create_csv(self):
+        with open('output.csv', 'w', newline='') as csvfile:
+            writer = csv.writer(csvfile)
+            writer.writerow(['Directory', '1xx', '2xx', '3xx', '4xx', '5xx'])
+            writer.writerows(self._get_row_dictionaries(self._get_status_code_for_range))
+            writer.writerow(['Directory', '200', '400', '404', '500'])
+            writer.writerows(self._get_row_dictionaries(self._get_status_code_for_specific))
+
+    def _get_row_dictionaries(self, function):
+        rows = []
+        fuzz_directories = Path(r"C:\users\main\downloads\300分鐘實驗")
+        for main_directory in fuzz_directories.iterdir():
+            if main_directory.is_dir():
+                result_directory = Path(main_directory, 'RestlerResults')
+                experiment_directory = Path(list(result_directory.iterdir()).pop())
+                log_dir = Path(experiment_directory, 'logs')
+                row = [main_directory] + function(log_dir)
+                rows.append(row)
+        return rows
+
+    def _get_status_code_for_range(self, log_directory):
+        numbers_of_status_code = []
+        log_network_parser = LogNetworkParser(log_directory, r"network.testing.*.txt")
+        numbers_of_status_code.append(log_network_parser.count_multiple_logs(r'HTTP/1.1 1'))
+        numbers_of_status_code.append(log_network_parser.count_multiple_logs(r'HTTP/1.1 2'))
+        numbers_of_status_code.append(log_network_parser.count_multiple_logs(r'HTTP/1.1 3'))
+        numbers_of_status_code.append(log_network_parser.count_multiple_logs(r'HTTP/1.1 4'))
+        numbers_of_status_code.append(log_network_parser.count_multiple_logs(r'HTTP/1.1 5'))
+        return numbers_of_status_code
+
+    def _get_status_code_for_specific(self, log_directory):
+        numbers_of_status_code = []
+        log_network_parser = LogNetworkParser(log_directory, r"network.testing.*.txt")
+        numbers_of_status_code.append(log_network_parser.count_multiple_logs(r'HTTP/1.1 200'))
+        numbers_of_status_code.append(log_network_parser.count_multiple_logs(r'HTTP/1.1 400'))
+        numbers_of_status_code.append(log_network_parser.count_multiple_logs(r'HTTP/1.1 404'))
+        numbers_of_status_code.append(log_network_parser.count_multiple_logs(r'HTTP/1.1 500'))
+        return numbers_of_status_code
 
 
-def print_count_http_status_code(log_directory):
-    log_network_file_extension = r"network.testing.*.txt"
-    log_network_parser = LogNetworkParser(log_directory, log_network_file_extension)
-
-    print(log_network_parser.count_multiple_logs(r'200 OK'), ' 200 OK')
-    print(log_network_parser.count_multiple_logs(r'400 Bad Request'), ' 400 Bad Request')
-    print(log_network_parser.count_multiple_logs(r'404 Not Found'), ' 404 Not Found')
-    print(log_network_parser.count_multiple_logs(r'500 Internal Server Error'), ' 500 Internal Server Error')
-    print()
-    ###
-    print(log_network_parser.count_multiple_logs(r'Sending: '), ' Total sent Request')
-    print(log_network_parser.count_multiple_logs(r'Empty response received'), ' Empty response received')
-    ###
+# def print_testing_summary(log_directory):
+#     testing_summary = Path(log_directory, 'testing_summary.json')
+#     log_testing_summary_parser = LogTestingSummaryParser(testing_summary)
+#     print(log_testing_summary_parser.get_final_spec_coverage(), ' final_spec_coverage')
+#     print(log_testing_summary_parser.get_number_of_success_request_sent(), ' number_of_success_request_sent')
+#     print()
 
 
 class LogNetworkParser:
@@ -65,10 +99,5 @@ class LogTestingSummaryParser:
 
 
 if __name__ == '__main__':
-    main_directory = Path(r"D:\restler-test\300分鐘實驗\Fuzz_miataru_300_classification_1")
-    result_directory = Path(main_directory, 'RestlerResults')
-    experiment_directory = Path(list(result_directory.iterdir()).pop())
-    log_dir = Path(experiment_directory, 'logs')
-
-    print_testing_summary(log_dir)
-    print_count_http_status_code(log_dir)
+    status_code_csv = StatusCodeCSV(None)
+    status_code_csv.execute()
