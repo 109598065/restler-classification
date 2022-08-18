@@ -29,6 +29,7 @@ class HttpStatusCodeCoverage:
                     request_hashes.add(request_hash)
         return request_hashes
 
+    # todo: bug
     def _is_status_code_exist(self, hash_str, regex):
         state = 0
         r_hash = r'Request hash: ' + hash_str
