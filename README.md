@@ -1,6 +1,10 @@
 論文工具說明
 ===
 
+# 影片介紹
+
+https://www.youtube.com/watch?v=npR4ejAYM6c&ab_channel=%E5%8C%97%E7%A7%91%E5%A4%A7-%E9%BB%83%E6%B3%93%E5%87%B1
+
 # 檔案說明
 ```
 Folder
@@ -23,7 +27,7 @@ Folder
 
 ### 1. Build
 
-建構 [修改後 RESTler](https://service.selab.ml/gitlab/109598065/restler) 的可執行檔案。
+建構 [修改後 RESTler](https://github.com/109598065/restler-modified) 的可執行檔案。
 
 ```=
 cd D:\restler
@@ -40,7 +44,7 @@ D:\restler_bin\restler\Restler.exe compile --api_spec D:\demo-server-test\swagge
 ```
 
 ### 3. Classification
-使用 [RESTler Classification](https://service.selab.ml/gitlab/109598065/restler-classification) 修改 Grammar 及設定。
+使用 [RESTler Classification](https://github.com/109598065/restler-classification) 修改 Grammar 及設定。
 
 切換至 RESTler Classification 資料夾對其進行設定。目前設定檔案放置於最外層的 execute.py 內。
 
