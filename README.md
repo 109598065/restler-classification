@@ -3,7 +3,7 @@
 
 # 影片介紹
 
-https://www.youtube.com/watch?v=npR4ejAYM6c&ab_channel=%E5%8C%97%E7%A7%91%E5%A4%A7-%E9%BB%83%E6%B3%93%E5%87%B1
+https://user-images.githubusercontent.com/71369246/187592186-39cb3598-4774-4f65-9293-6d63efb49eda.mp4
 
 # 檔案說明
 ```
